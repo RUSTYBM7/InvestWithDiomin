@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Award, BookOpen, Building2, Home, TrendingUp, Users, Download, Calendar, Mail } from "lucide-react";
+import { ArrowRight, Award, BookOpen, Building2, Home, TrendingUp, Download, Calendar } from "lucide-react";
 import { ConsultationDialog } from "@/components/ConsultationDialog";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const services = [
@@ -274,24 +276,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t bg-muted/30 py-12">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6">
-              <h3 className="mb-2 text-xl font-bold">Invest with Diomin</h3>
-              <p className="text-sm text-muted-foreground">
-                Professional wealth advisory services
-              </p>
-            </div>
-            <Separator className="my-6" />
-            <div className="space-y-2 text-xs text-muted-foreground">
-              <p>CPWA® is a registered trademark of the Investments & Wealth Institute.</p>
-              <p>© 2025 Invest with Diomin. All rights reserved.</p>
-              <p>This content is for educational purposes only and not investment advice.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

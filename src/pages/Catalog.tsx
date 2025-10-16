@@ -1,137 +1,194 @@
-import { Navigation } from "../components/Navigation";
-import { ProductCard } from "../components/ProductCard";
-import { Button } from "../components/ui/button";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Download, FileText, Check } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import Footer from "@/components/Footer";
 
-const products = [
-  {
-    id: 1,
-    name: "Olympic Barbell Set",
-    price: "$899",
-    category: "Barbells & Weights",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
-    featured: true
-  },
-  {
-    id: 2,
-    name: "Adjustable Dumbbells",
-    price: "$599",
-    category: "Dumbbells",
-    image: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=800&q=80",
-    featured: true
-  },
-  {
-    id: 3,
-    name: "Power Rack Station",
-    price: "$1,299",
-    category: "Racks & Cages",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80"
-  },
-  {
-    id: 4,
-    name: "Premium Bench Press",
-    price: "$749",
-    category: "Benches",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80"
-  },
-  {
-    id: 5,
-    name: "Cable Crossover Machine",
-    price: "$2,499",
-    category: "Machines",
-    image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&q=80"
-  },
-  {
-    id: 6,
-    name: "Kettlebell Set",
-    price: "$399",
-    category: "Kettlebells",
-    image: "https://images.unsplash.com/photo-1606889464198-fcb18894cf50?w=800&q=80"
-  },
-  {
-    id: 7,
-    name: "Commercial Treadmill",
-    price: "$1,899",
-    category: "Cardio Equipment",
-    image: "https://images.unsplash.com/photo-1576678927484-cc907957d212?w=800&q=80"
-  },
-  {
-    id: 8,
-    name: "Rowing Machine Pro",
-    price: "$1,249",
-    category: "Cardio Equipment",
-    image: "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=800&q=80"
-  },
-  {
-    id: 9,
-    name: "Hex Dumbbell Set",
-    price: "$499",
-    category: "Dumbbells",
-    image: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=800&q=80"
-  },
-  {
-    id: 10,
-    name: "Resistance Band Set",
-    price: "$79",
-    category: "Accessories",
-    image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=800&q=80"
-  },
-  {
-    id: 11,
-    name: "Exercise Bike Elite",
-    price: "$899",
-    category: "Cardio Equipment",
-    image: "https://images.unsplash.com/photo-1617258683320-61900b281ced?w=800&q=80"
-  },
-  {
-    id: 12,
-    name: "Olympic Weight Plates",
-    price: "$549",
-    category: "Barbells & Weights",
-    image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80"
-  },
-  {
-    id: 13,
-    name: "Wall-Mounted Pull-Up Bar",
-    price: "$159",
-    category: "Accessories",
-    image: "https://images.unsplash.com/photo-1584735175315-9d5df23860e6?w=800&q=80"
-  },
-  {
-    id: 14,
-    name: "Premium Yoga Mat",
-    price: "$89",
-    category: "Accessories",
-    image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=800&q=80"
-  }
-];
+export default function CatalogPage() {
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasDownloaded, setHasDownloaded] = useState(false);
 
-export default function Catalog() {
+  const handleDownload = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.email || !formData.email.includes("@")) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.from("catalog_downloads").insert({
+        email: formData.email.toLowerCase().trim(),
+        name: formData.name || null,
+      });
+
+      if (error) throw error;
+
+      toast.success("Catalog download started!");
+      setHasDownloaded(true);
+
+      // Simulate PDF download
+      setTimeout(() => {
+        window.open("/investment-catalog-2025.pdf", "_blank");
+      }, 500);
+    } catch (error) {
+      console.error("Download error:", error);
+      toast.error("Failed to process download. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const resources = [
+    {
+      title: "Investment Catalog 2025",
+      description: "Complete overview of wealth management services and methodologies",
+      pages: "24 pages",
+      format: "PDF",
+    },
+    {
+      title: "Tax Planning Guide",
+      description: "Strategic tax optimization frameworks for high-net-worth individuals",
+      pages: "16 pages",
+      format: "PDF",
+    },
+    {
+      title: "Estate Planning Checklist",
+      description: "Comprehensive checklist for multi-generational wealth transfer",
+      pages: "8 pages",
+      format: "PDF",
+    },
+  ];
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <Link to="/">
-            <Button variant="ghost" className="mb-6">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Equipment Catalog</h1>
-            <p className="text-xl text-muted-foreground">
-              Browse our complete collection of professional gym equipment
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+              Resource Catalog
+            </h1>
+            <p className="text-lg text-muted-foreground md:text-xl">
+              Download comprehensive guides on wealth management and legacy planning
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
           </div>
         </div>
       </section>
+
+      {/* Main Download Section */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-start">
+            {/* Download Form */}
+            <Card className="sticky top-24 border-primary/20 shadow-xl">
+              <CardHeader>
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20">
+                  <Download className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="text-2xl">Investment Catalog 2025</CardTitle>
+                <CardDescription className="text-base">
+                  Access our comprehensive wealth management resource guide
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {!hasDownloaded ? (
+                  <form onSubmit={handleDownload} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="John Smith"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">
+                        Email Address <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@example.com"
+                        required
+                      />
+                    </div>
+                    <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+                      <Download className="mr-2 h-5 w-5" />
+                      {isLoading ? "Processing..." : "Download Catalog"}
+                    </Button>
+                    <p className="text-xs text-muted-foreground">
+                      By downloading, you agree to receive updates from Invest with Diomin.
+                    </p>
+                  </form>
+                ) : (
+                  <div className="space-y-4 text-center">
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                      <Check className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 font-semibold">Download Started!</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Your catalog should begin downloading shortly. Check your downloads folder.
+                      </p>
+                    </div>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => window.open("/investment-catalog-2025.pdf", "_blank")}
+                    >
+                      Download Again
+                    </Button>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Resource List */}
+            <div className="space-y-6">
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">Available Resources</h2>
+                <p className="text-muted-foreground">
+                  Explore our collection of wealth management guides and planning resources
+                </p>
+              </div>
+              <div className="space-y-4">
+                {resources.map((resource, index) => (
+                  <Card key={index} className="border-muted/50 transition-all hover:border-primary/30">
+                    <CardHeader>
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                          <FileText className="h-6 w-6" />
+                        </div>
+                        <div className="flex-1">
+                          <CardTitle className="text-lg">{resource.title}</CardTitle>
+                          <CardDescription>{resource.description}</CardDescription>
+                          <div className="mt-2 flex gap-3 text-xs text-muted-foreground">
+                            <span>{resource.pages}</span>
+                            <span>•</span>
+                            <span>{resource.format}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
