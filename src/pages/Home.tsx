@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight, Award, BookOpen, Building2, Home, TrendingUp, Users, Download, Calendar, Mail } from "lucide-react";
+import { ConsultationDialog } from "@/components/ConsultationDialog";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 export default function HomePage() {
   const services = [
@@ -253,14 +255,16 @@ export default function HomePage() {
               Schedule a consultation to discuss your wealth management strategy.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" className="w-full sm:w-auto group">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book 1:1 Consultation
-              </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                <Mail className="mr-2 h-5 w-5" />
-                Join Newsletter
-              </Button>
+              <ConsultationDialog>
+                <Button size="lg" className="w-full sm:w-auto group">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Book 1:1 Consultation
+                </Button>
+              </ConsultationDialog>
+              <div className="w-full sm:hidden" />
+            </div>
+            <div className="mt-8 flex justify-center">
+              <NewsletterForm />
             </div>
             <p className="mt-8 text-sm text-muted-foreground">
               Educational content only; not individualized investment advice.
