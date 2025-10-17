@@ -11,9 +11,12 @@ export default function Navigation() {
 
   const routes = [
     { path: "/", label: "Home" },
+    { path: "/feature", label: "Profile" },
     { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
     { path: "/case-studies", label: "Case Studies" },
+    { path: "/real-estate", label: "Real Estate" },
+    { path: "/philanthropy", label: "Philanthropy" },
     { path: "/catalog", label: "Catalog" },
     { path: "/insights", label: "Insights" },
     { path: "/contact", label: "Contact" },
