@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/theme-provider";
 import Navigation from "./components/Navigation";
-import Home from "./pages/Home";
+import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
@@ -18,6 +18,8 @@ import Philanthropy from "./pages/Philanthropy";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdvisoryOverview from "./pages/AdvisoryOverview";
 import PrivateWealthStrategy from "./pages/PrivateWealthStrategy";
+import TaxOptimization from "./pages/TaxOptimization";
+import EstatePlanningPage from "./pages/EstateplanningPage";
 import InsightsHub from "./pages/InsightsHub";
 import NotFound from "./pages/NotFound";
 
@@ -32,11 +34,13 @@ function App() {
           <Router>
             <Navigation />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Index />} />
               <Route path="/feature" element={<Feature />} />
               <Route path="/about" element={<About />} />
               <Route path="/advisory" element={<AdvisoryOverview />} />
               <Route path="/advisory/private-wealth-strategy" element={<PrivateWealthStrategy />} />
+              <Route path="/advisory/tax-optimization" element={<TaxOptimization />} />
+              <Route path="/advisory/estate-planning" element={<EstatePlanningPage />} />
               <Route path="/services" element={<Services />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/real-estate" element={<RealEstate />} />
