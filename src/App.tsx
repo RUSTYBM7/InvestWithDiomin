@@ -13,8 +13,12 @@ import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import Feature from "./pages/Feature";
 import RealEstate from "./pages/RealEstate";
+import RealEstatePortfolio from "./pages/RealEstatePortfolio";
 import Philanthropy from "./pages/Philanthropy";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdvisoryOverview from "./pages/AdvisoryOverview";
+import PrivateWealthStrategy from "./pages/PrivateWealthStrategy";
+import InsightsHub from "./pages/InsightsHub";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,14 +34,16 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/feature" element={<Feature />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="/about" element={<About />} />
+              <Route path="/advisory" element={<AdvisoryOverview />} />
+              <Route path="/advisory/private-wealth-strategy" element={<PrivateWealthStrategy />} />
               <Route path="/services" element={<Services />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/real-estate" element={<RealEstate />} />
+              <Route path="/real-estate/portfolio" element={<RealEstatePortfolio />} />
               <Route path="/philanthropy" element={<Philanthropy />} />
               <Route path="/catalog" element={<Catalog />} />
-              <Route path="/insights" element={<Insights />} />
+              <Route path="/insights" element={<InsightsHub />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="*" element={<NotFound />} />

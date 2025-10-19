@@ -2,11 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Award, BookOpen, Building2, Home, TrendingUp, Download, Calendar } from "lucide-react";
+import { ArrowRight, Award, BookOpen, Building2, Home, TrendingUp, Download, Calendar, Zap } from "lucide-react";
 import { ConsultationDialog } from "@/components/ConsultationDialog";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { RotatingStats } from "@/components/RotatingStats";
+import { AutomationFlyer } from "@/components/AutomationFlyer";
+import { LiveFeed } from "@/components/LiveFeed";
 
 export default function HomePage() {
   const services = [
@@ -103,12 +106,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Rotating Stats Section */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="mb-12 text-center text-3xl font-bold">Our Impact by the Numbers</h2>
+            <RotatingStats />
+          </div>
+        </div>
+      </section>
+
+      {/* Automation Flyer */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold">Intelligent Automation at Work</h2>
+              <p className="text-muted-foreground">Real-time integrations with Mailchimp, Supabase & HubSpot for seamless lead management</p>
+            </div>
+            <AutomationFlyer />
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">About Stephanie</h2>
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">About Stephanie Diomin, CPWA®</h2>
               <Separator className="mx-auto w-24 bg-primary" />
             </div>
             <Card className="border-muted/50 shadow-lg">
@@ -253,6 +279,33 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 text-3xl font-bold md:text-4xl lg:text-5xl">Ready to Build Your Legacy?</h2>
+            <p className="mb-10 text-lg text-muted-foreground">
+              Schedule a consultation to discuss your wealth management strategy.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <ConsultationDialog>
+                <Button size="lg" className="w-full sm:w-auto group">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Book 1:1 Consultation
+                </Button>
+              </ConsultationDialog>
+              <div className="w-full sm:hidden" />
+            </div>
+            <div className="mt-8 flex justify-center">
+              <NewsletterForm />
+            </div>
+            <p className="mt-8 text-sm text-muted-foreground">
+              Educational content only; not individualized investment advice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+}y to Build Your Legacy?</h2>
             <p className="mb-10 text-lg text-muted-foreground">
               Schedule a consultation to discuss your wealth management strategy.
             </p>

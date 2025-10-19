@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { subscribeToMailchimp } from "@/lib/mailchimp";
 import { toast } from "sonner";
 
 export function NewsletterForm() {
@@ -11,7 +12,6 @@ export function NewsletterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!email || !email.includes("@")) {
       toast.error("Please enter a valid email address");
       return;
@@ -20,19 +20,28 @@ export function NewsletterForm() {
     setIsLoading(true);
 
     try {
-      const { error } = await supabase
+      // Subscribe to Supabase
+      const { error: supabaseError } = await supabase
         .from("newsletter_subscribers")
         .insert({ email: email.toLowerCase().trim() });
 
-      if (error) {
-        if (error.code === "23505") {
-          toast.error("You're already subscribed to our newsletter!");
+      if (supabaseError) {
+        if (supabaseError.code === "23505") {
+          toast.error("You're already subscribed!");
         } else {
-          throw error;
+          throw supabaseError;
         }
       } else {
-        toast.success("Successfully subscribed to newsletter!");
-        setEmail("");
+        // Subscribe to Mailchimp
+        const mailchimpSuccess = await subscribeToMailchimp(email);
+
+        if (mailchimpSuccess) {
+          toast.success("Successfully subscribed! Check your inbox for welcome email.");
+          setEmail("");
+        } else {
+          toast.success("Subscribed to Supabase (Mailchimp sync in progress)");
+          setEmail("");
+        }
       }
     } catch (error) {
       console.error("Newsletter subscription error:", error);
