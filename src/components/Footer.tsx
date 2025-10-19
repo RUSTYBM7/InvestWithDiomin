@@ -83,14 +83,12 @@ export default function Footer() {
             <h4 className="mb-4 font-semibold">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:stephanie@investwithdiomin.com" className="hover:text-foreground">
-                  stephanie@investwithdiomin.com
+                <a href="mailto:book@investwithdiomin.today" className="hover:text-foreground">
+                  book@investwithdiomin.today
                 </a>
               </li>
               <li>
-                <a href="tel:+1234567890" className="hover:text-foreground">
-                  +1 (234) 567-8900
-                </a>
+                <span className="text-xs">Domain: InvestWithDiomin.today</span>
               </li>
               <li className="pt-2">
                 <span className="font-medium text-foreground">Office Hours</span>

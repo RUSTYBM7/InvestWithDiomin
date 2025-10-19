@@ -36,7 +36,7 @@ export default function ContactPage() {
       title: "Email",
       description: "Send a detailed inquiry",
       cta: "Send Email",
-      href: "mailto:stephanie@investwithdiomin.com",
+      href: "mailto:book@investwithdiomin.today",
       color: "from-gray-500/20 to-gray-600/20",
     },
   ];
@@ -131,27 +131,27 @@ export default function ContactPage() {
         <div className="container mx-auto px-6">
           <Card className="mx-auto max-w-3xl">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Office Hours</CardTitle>
-              <CardDescription>When you can reach us</CardDescription>
+              <CardTitle className="text-2xl">Get in Touch</CardTitle>
+              <CardDescription>Contact information for InvestWithDiomin.today</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="text-center">
-                  <div className="mb-2 font-semibold">Consultation Hours</div>
+                  <div className="mb-2 font-semibold">Primary Contact</div>
+                  <div className="text-sm text-muted-foreground">
+                    Email: book@investwithdiomin.today
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Domain: InvestWithDiomin.today
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="mb-2 font-semibold">Business Hours</div>
                   <div className="text-sm text-muted-foreground">
                     Monday - Friday: 9:00 AM - 5:00 PM EST
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    By appointment only
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="mb-2 font-semibold">Response Time</div>
-                  <div className="text-sm text-muted-foreground">
-                    Email: Within 24 hours
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Chat: Immediate (business hours)
+                    Response time: Within 24 hours
                   </div>
                 </div>
               </div>
