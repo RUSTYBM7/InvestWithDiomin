@@ -159,21 +159,35 @@ export default function HomePage() {
               <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">About Stephanie Diomin, CPWA®</h2>
               <Separator className="mx-auto w-24 bg-primary" />
             </div>
-            <Card className="border-muted/50 shadow-lg">
-              <CardContent className="p-8 md:p-12">
-                <p className="mb-8 text-lg leading-relaxed text-foreground/90">
-                  Stephanie Diomin is a CPWA® specializing in advanced wealth strategy, tax optimization, and long-term legacy design. With years in private wealth advising and an instinct for clarity in complexity, she merges financial discipline with human insight. Her approach is education-forward, empowering clients to understand their assets as tools of freedom and impact.
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-6">
-                  {values.map((value, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-primary" />
-                      <span className="text-base font-medium text-foreground">{value}</span>
-                    </div>
-                  ))}
+            <div className="grid gap-8 md:grid-cols-2 md:items-center">
+              <div className="flex justify-center">
+                <div className="relative h-64 w-64 overflow-hidden rounded-2xl shadow-lg">
+                  <img 
+                    src="/assets/stephanie-diomin-portrait.jpg" 
+                    alt="Stephanie Diomin, CPWA® - Wealth Advisor" 
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              <Card className="border-muted/50 shadow-lg">
+                <CardContent className="p-8">
+                  <p className="mb-6 text-lg leading-relaxed text-foreground/90">
+                    Stephanie Diomin is a CPWA® specializing in advanced wealth strategy, tax optimization, and long-term legacy design. With 15+ years in private wealth advising and an instinct for clarity in complexity, she merges financial discipline with human insight.
+                  </p>
+                  <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+                    Her approach empowers clients to understand their assets as tools of freedom and impact, guiding families and entrepreneurs toward meaningful wealth preservation and strategic growth.
+                  </p>
+                  <div className="flex flex-wrap items-center justify-start gap-6">
+                    {values.map((value, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-primary" />
+                        <span className="text-base font-medium text-foreground">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -243,8 +257,8 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-muted-foreground">
-            * Results shown are anonymized examples for educational purposes only. Past performance does not guarantee future results.
+          <p className="mt-8 text-center text-xs text-muted-foreground">
+            Past performance does not guarantee future results.
           </p>
         </div>
       </section>

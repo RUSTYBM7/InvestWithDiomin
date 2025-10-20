@@ -27,10 +27,8 @@ export default function Navigation() {
     <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-lg">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary">
-              <span className="font-serif text-xl font-bold text-primary-foreground">SD</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="/assets/logo-main.png" alt="Invest With Diomin" className="h-10 w-auto" />
             <div className="hidden sm:block">
               <h2 className="font-serif text-lg font-bold leading-tight">Invest with Diomin</h2>
               <p className="text-xs text-muted-foreground">CPWA® Wealth Advisory</p>
