@@ -1,0 +1,12 @@
+node_modules
+.git
+.DS_Store
+*.md
+.env
+.env.local
+.env.*.local
+dist
+.vite
+npm-debug.log
+yarn-error.log
+.eslintcache
