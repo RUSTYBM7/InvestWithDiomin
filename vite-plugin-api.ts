@@ -1,5 +1,4 @@
 import type { Plugin } from "vite";
-import { handleOpenAIQuery } from "./src/api/v1-openai-query";
 
 export function vitePluginApi(): Plugin {
   return {
@@ -21,8 +20,10 @@ export function vitePluginApi(): Plugin {
 
             req.on("end", async () => {
               try {
+                const { handleOpenAIQuery } = await import("./src/api/v1-openai-query");
                 const data = JSON.parse(body);
-                const result = await handleOpenAIRequest(data);
+                const { prompt } = data;
+                const result = await handleOpenAIQuery(prompt);
 
                 res.statusCode = result.error ? 400 : 200;
                 res.setHeader("Content-Type", "application/json");
