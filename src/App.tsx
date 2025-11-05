@@ -3,6 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/theme-provider";
+import { AuthProvider } from "./hooks/useAuth";
 import Navigation from "./components/Navigation";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -22,6 +23,11 @@ import TaxOptimization from "./pages/TaxOptimization";
 import EstatePlanningPage from "./pages/EstateplanningPage";
 import InsightsHub from "./pages/InsightsHub";
 import NotFound from "./pages/NotFound";
+import SignIn from "./pages/SignIn";
+import AuthCallback from "./pages/AuthCallback";
+import InsightsProtected from "./pages/InsightsProtected";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -32,26 +38,39 @@ function App() {
         <Toaster />
         <ThemeProvider defaultTheme="light" storageKey="wealth-theme">
           <Router>
-            <Navigation />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/feature" element={<Feature />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/advisory" element={<AdvisoryOverview />} />
-              <Route path="/advisory/private-wealth-strategy" element={<PrivateWealthStrategy />} />
-              <Route path="/advisory/tax-optimization" element={<TaxOptimization />} />
-              <Route path="/advisory/estate-planning" element={<EstatePlanningPage />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/real-estate" element={<RealEstate />} />
-              <Route path="/real-estate/portfolio" element={<RealEstatePortfolio />} />
-              <Route path="/philanthropy" element={<Philanthropy />} />
-              <Route path="/catalog" element={<Catalog />} />
-              <Route path="/insights" element={<InsightsHub />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <AuthProvider>
+              <Routes>
+                {/* Public routes */}
+                <Route path="/" element={<><Navigation /><Index /></>} />
+                <Route path="/feature" element={<><Navigation /><Feature /></>} />
+                <Route path="/about" element={<><Navigation /><About /></>} />
+                <Route path="/advisory" element={<><Navigation /><AdvisoryOverview /></>} />
+                <Route path="/advisory/private-wealth-strategy" element={<><Navigation /><PrivateWealthStrategy /></>} />
+                <Route path="/advisory/tax-optimization" element={<><Navigation /><TaxOptimization /></>} />
+                <Route path="/advisory/estate-planning" element={<><Navigation /><EstatePlanningPage /></>} />
+                <Route path="/services" element={<><Navigation /><Services /></>} />
+                <Route path="/case-studies" element={<><Navigation /><CaseStudies /></>} />
+                <Route path="/real-estate" element={<><Navigation /><RealEstate /></>} />
+                <Route path="/real-estate/portfolio" element={<><Navigation /><RealEstatePortfolio /></>} />
+                <Route path="/philanthropy" element={<><Navigation /><Philanthropy /></>} />
+                <Route path="/catalog" element={<><Navigation /><Catalog /></>} />
+                <Route path="/contact" element={<><Navigation /><Contact /></>} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/admin" element={<><Navigation /><AdminDashboard /></>} />
+                
+                {/* Auth routes */}
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/auth/callback" element={<AuthCallback />} />
+                
+                {/* Protected routes */}
+                <Route path="/insights" element={<InsightsProtected />} />
+                <Route path="/insights-hub" element={<><Navigation /><InsightsHub /></>} />
+                
+                {/* Fallback */}
+                <Route path="*" element={<><Navigation /><NotFound /></>} />
+              </Routes>
+            </AuthProvider>
           </Router>
         </ThemeProvider>
       </TooltipProvider>
