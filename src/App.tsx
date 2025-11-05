@@ -35,6 +35,7 @@ import Recovery from "./pages/Recovery";
 import AdvisoryWorkshops from "./pages/AdvisoryWorkshops";
 import AdvisoryCourses from "./pages/AdvisoryCourses";
 import AdvisoryPortfolioAudits from "./pages/AdvisoryPortfolioAudits";
+import InsightPost from "./pages/InsightPost";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +74,7 @@ function App() {
                 <Route path="/insights/research" element={<><Navigation /><Breadcrumbs /><InsightsProtected /></>} />
                 <Route path="/insights/digest" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
                 <Route path="/insights/analytics" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
+                <Route path="/insights/:slug" element={<><Navigation /><Breadcrumbs /><InsightPost /></>} />
 
                 {/* Catalog */}
                 <Route path="/catalog" element={<><Navigation /><Breadcrumbs /><Catalog /></>} />
