@@ -12,7 +12,7 @@ export default function ContactPage() {
       title: "WhatsApp",
       description: "Chat directly with Stephanie for quick questions",
       cta: "Start WhatsApp Chat",
-      href: "https://wa.me/1234567890?text=Hi%20Stephanie,%20I'm%20interested%20in%20your%20wealth%20advisory%20services",
+      href: "https://wa.me/15092946731?text=Hello+Stephanie",
       color: "from-green-500/20 to-green-600/20",
     },
     {
@@ -202,7 +202,7 @@ export default function ContactPage() {
               Weekly wealth insights delivered to your inbox, including tax-aware strategies, durable portfolio principles, and actionable checklists to help you make decisions with precision.
             </p>
             <div className="flex justify-center">
-              <NewsletterForm />
+              <NewsletterForm redirectUrl="/thank-you" />
             </div>
           </div>
         </div>

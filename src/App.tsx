@@ -28,6 +28,9 @@ import AuthCallback from "./pages/AuthCallback";
 import InsightsProtected from "./pages/InsightsProtected";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Fintech from "./pages/Fintech";
+import XcloudMultixPro from "./pages/XcloudMultixPro";
+import Recovery from "./pages/Recovery";
 
 const queryClient = new QueryClient();
 
@@ -58,15 +61,15 @@ function App() {
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/admin" element={<><Navigation /><AdminDashboard /></>} />
-                
+                <Route path="/fintech" element={<><Navigation /><Fintech /></>} />
+                <Route path="/xcloudmultixpro" element={<><Navigation /><XcloudMultixPro /></>} />
+                <Route path="/recovery" element={<><Navigation /><Recovery /></>} />
                 {/* Auth routes */}
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
-                
                 {/* Protected routes */}
                 <Route path="/insights" element={<InsightsProtected />} />
                 <Route path="/insights-hub" element={<><Navigation /><InsightsHub /></>} />
-                
                 {/* Fallback */}
                 <Route path="*" element={<><Navigation /><NotFound /></>} />
               </Routes>

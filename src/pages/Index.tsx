@@ -77,34 +77,49 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-primary/10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(212,175,55,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,167,106,0.08),transparent_50%)]" />
+        <div className="absolute -inset-x-20 -top-32 h-64 bg-[conic-gradient(from_90deg_at_50%_50%,rgba(212,175,55,0.08),transparent_60%)] blur-2xl" />
         <div className="container relative mx-auto px-6 py-24 md:py-32 lg:py-40">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             <Badge variant="outline" className="mb-6 border-primary/30 text-sm">
-              Luxury Fintech & Wealth Advisory
+              Empowering Global Investors Through Intelligent Crypto Leverage & Recovery
             </Badge>
             <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              Timeless Wealth.
+              Crypto-Driven Wealth Advisory
               <br />
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Engineered for Tomorrow.
+                Leverage. Recover. Build.
               </span>
             </h1>
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Invest With Diomin merges geometric precision and modern technology to design tax-efficient portfolios, durable legacy structures, and confident financial decisions. We pair timeless principles with forward-looking tools so every plan is elegant, explainable, and engineered to perform across cycles—not just market moments.
+            <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              We help investors harness cryptocurrency leverage systems responsibly, restore compromised digital assets, and integrate tokenized real estate within multi-asset portfolios. Our approach blends risk controls, on-chain telemetry, and human judgment under the leadership of Stephanie Diomin, CPWA®, delivering clarity across wallets, exchanges, and DeFi while maintaining tax-aware execution and audit-ready documentation.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" className="w-full sm:w-auto group" asChild>
-                <Link to="/advisory">
-                  View Services Catalog
+                <Link to="/xcloudmultixpro">
+                  Join XcloudMultixPro
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
+                <Link to="/recovery">Recover Funds</Link>
+              </Button>
               <ConsultationDialog>
-                <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                   Book Consultation
                 </Button>
               </ConsultationDialog>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  const el = document.getElementById("about-stephanie");
+                  el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+              >
+                Learn More
+              </Button>
             </div>
           </div>
         </div>
@@ -125,8 +140,8 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold">Intelligent Automation at Work</h2>
-              <p className="text-muted-foreground">Real-time integrations with Mailchimp, Supabase & HubSpot for seamless lead management</p>
+              <h2 className="mb-4 text-3xl font-bold">Automation That Serves You</h2>
+              <p className="text-muted-foreground">On-chain telemetry, Mailchimp welcome flows, Supabase lead capture, and reconciliation automations that reduce overhead while preserving human oversight.</p>
             </div>
             <AutomationFlyer />
           </div>
@@ -152,7 +167,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28" id="about-stephanie">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
@@ -172,10 +187,10 @@ export default function HomePage() {
               <Card className="border-muted/50 shadow-lg">
                 <CardContent className="p-8">
                   <p className="mb-6 text-lg leading-relaxed text-foreground/90">
-                    We are a luxury fintech and wealth advisory practice uniting timeless principles with intelligent automation. Our work centers on clarity, discipline, and elegant execution.
+                    Led by Stephanie Diomin, CPWA®, our practice builds crypto-forward wealth programs spanning leverage calibration, recovery workflows, and tokenization strategy alongside traditional planning. We focus on empowerment through literacy, real risk controls, and institutional discipline.
                   </p>
                   <p className="mb-8 text-base leading-relaxed text-muted-foreground">
-                    From liquidity events to intergenerational planning, we help founders, professionals, and families engineer tax-aware structures, resilient portfolios, and meaningful legacy outcomes.
+                    We operationalize portfolio telemetry across wallets and exchanges, design tax-aware trading playbooks, and coordinate custody hygiene with documented standard operating procedures. The result is an elegant, explainable system investors can operate with confidence across cycles.
                   </p>
                   <div className="flex flex-wrap items-center justify-start gap-6">
                     {values.map((value, index) => (
@@ -337,6 +352,9 @@ export default function HomePage() {
             </div>
             <p className="mt-8 text-sm text-muted-foreground">
               Educational content only; not individualized investment advice.
+            </p>
+            <p className="mt-8 text-sm text-muted-foreground">
+              © 2025 Invest With Diomin. All Rights Reserved.
             </p>
           </div>
         </div>
