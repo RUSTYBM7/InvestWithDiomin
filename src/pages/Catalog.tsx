@@ -7,25 +7,16 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import Footer from "@/components/Footer";
 import { track } from "@/integrations/analytics";
 
- type Doc = { slug: string; title: string; abstract: string; size_kb: number; format: string; topic: string; level: string; updated_at: string; version?: string; file_url?: string };
+type Doc = { slug: string; title: string; abstract: string; size_kb: number; format: string; topic: string; level: string; updated_at: string; version?: string; file_url?: string };
 
-const TYPES = ["PDF", "CSV", "Slide"];
-const TOPICS = ["markets", "recovery", "education", "real-estate", "credit"];
-const LEVELS = ["Beginner", "Intermediate", "Pro"];
+// remove TYPES, TOPICS, LEVELS and related filter/search state
 export default function CatalogPage() {
   const [docs, setDocs] = useState<Doc[]>([]);
   const [preview, setPreview] = useState<Doc | null>(null);
-  const [q, setQ] = useState("");
-  const [filters, setFilters] = useState({ type: "", topic: "", level: "" });
 
   useEffect(() => {
-    const url = new URL("/api/v1/catalog", window.location.origin);
-    if (filters.type) url.searchParams.set("type", filters.type);
-    if (filters.topic) url.searchParams.set("topic", filters.topic);
-    if (filters.level) url.searchParams.set("level", filters.level);
-    if (q) url.searchParams.set("q", q);
-    fetch(url.toString()).then(r => r.json()).then(j => setDocs(j.items || [])).catch(() => setDocs([]));
-  }, [filters, q]);
+    fetch("/api/v1/catalog").then(r => r.json()).then(j => setDocs(j.items || [])).catch(() => setDocs([]));
+  }, []);
 
   const requestDownload = async (d: Doc) => {
     try {
@@ -66,18 +57,7 @@ export default function CatalogPage() {
 
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-6">
-          <div className="mb-6 grid gap-3 md:grid-cols-4">
-            <Input placeholder="Search documents" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search documents" />
-            <div className="flex flex-wrap gap-2 md:col-span-3">
-              {[{k:"type", vals:TYPES}, {k:"topic", vals:TOPICS}, {k:"level", vals:LEVELS}].map(group => (
-                <div key={group.k} className="flex items-center gap-2">
-                  {group.vals.map(v => (
-                    <Badge key={v} variant={filters[group.k as keyof typeof filters]===v? "default": "outline"} className="cursor-pointer" onClick={() => setFilters(f => ({...f, [group.k]: f[group.k as keyof typeof f]===v ? "" : v}))}>{v}</Badge>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Removed search input and filter chips */}
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {docs.map(d => (
