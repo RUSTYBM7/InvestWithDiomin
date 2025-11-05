@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Footer from "@/components/Footer";
+import { track } from "@/integrations/analytics";
 
  type Doc = { slug: string; title: string; abstract: string; size_kb: number; format: string; topic: string; level: string; updated_at: string; version?: string; file_url?: string };
 
@@ -35,8 +36,17 @@ export default function CatalogPage() {
       });
       const json = await res.json();
       if (json?.signedUrl) {
-        window.location.href = json.signedUrl;
-        // analytics: catalog_download
+        const fileRes = await fetch(json.signedUrl);
+        const blob = await fileRes.blob();
+        const a = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        a.href = url;
+        a.download = `${d.title.replace(/[^a-z0-9]+/gi,'-').toLowerCase()}.${(d.format||'pdf').toLowerCase()}`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        track('catalog_download', { slug: d.slug, title: d.title });
       }
     } catch (e) {}
   };
