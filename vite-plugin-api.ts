@@ -1,5 +1,5 @@
 import type { Plugin } from "vite";
-import { handleOpenAIRequest } from "./src/routes/api-openai";
+import { handleOpenAIQuery } from "./src/api/v1-openai-query";
 
 export function vitePluginApi(): Plugin {
   return {
