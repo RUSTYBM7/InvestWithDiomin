@@ -38,11 +38,9 @@ export default function AboutPage() {
             <Badge variant="outline" className="mb-6 border-primary/30">
               Certified Private Wealth Advisor
             </Badge>
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-              About Stephanie Diomin, CPWA®
-            </h1>
-            <p className="text-lg text-muted-foreground md:text-xl">
-              Merging financial discipline with human insight to build meaningful legacies
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">About Invest With Diomin</h1>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+              A luxury fintech and wealth advisory practice, uniting timeless principles with intelligent automation. We design disciplined, tax-aware portfolios and legacy structures for founders, professionals, and families.
             </p>
           </div>
         </div>

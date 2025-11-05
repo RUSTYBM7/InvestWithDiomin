@@ -106,11 +106,9 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-20 md:py-28">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-              Wealth Management Services
-            </h1>
-            <p className="text-lg text-muted-foreground md:text-xl">
-              Comprehensive solutions tailored to your legacy goals
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">Services Catalog</h1>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+              Precision-built solutions across portfolio engineering, tax strategy, estate architecture, and family governance—delivered with geometric clarity and elegant execution.
             </p>
           </div>
         </div>
