@@ -29,9 +29,8 @@ export default function Navigation() {
     <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-lg">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/brand-logo.svg" alt="Invest With Diomin" className="h-8 w-auto" />
-            <span className="sr-only">Invest With Diomin</span>
+          <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
+            <span className="font-serif text-xl font-bold tracking-wide">Invest With Diomin</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -79,7 +78,12 @@ export default function Navigation() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-64">
-                <div className="mt-8 flex flex-col gap-2">
+                <div className="mb-6 border-b pb-4">
+                  <Link to="/" onClick={() => setOpen(false)} className="block font-serif text-lg font-bold">
+                    Invest With Diomin
+                  </Link>
+                </div>
+                <div className="mt-2 flex flex-col gap-2">
                   {routes.map((route) => (
                     <Link key={route.path} to={route.path} onClick={() => setOpen(false)}>
                       <Button
