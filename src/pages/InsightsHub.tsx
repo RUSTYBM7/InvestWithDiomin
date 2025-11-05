@@ -5,8 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { MediaHero } from "@/components/media/MediaHero";
 
-type Post = { slug: string; title: string; summary: string; tags: string[]; hero_url?: string; published_at?: string };
+type Post = { slug: string; title: string; summary: string; tags: string[]; hero_url?: string; published_at?: string; media_type?: string };
 
 const TAGS = ["markets", "recovery", "education", "research"] as const;
 
@@ -24,18 +25,18 @@ export default function InsightsHub() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-16 md:py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="mb-3 text-4xl font-bold md:text-5xl">Insights That Empower Digital Wealth</h1>
-          <p className="mx-auto max-w-3xl text-muted-foreground">Live markets, recovery intelligence, and leverage briefs—curated via XcloudMultixPro.</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+      <MediaHero
+        tag="insights-hero"
+        title="Insights That Empower Digital Wealth"
+        subtitle="Live markets, recovery intelligence, and leverage briefs—curated via XcloudMultixPro."
+        cta={
+          <>
             <Button asChild aria-label="Market Dashboard"><Link to="/insights/markets">Market Dashboard</Link></Button>
             <Button variant="outline" asChild aria-label="Subscribe"><Link to="#subscribe">Subscribe</Link></Button>
             <Button variant="ghost" asChild aria-label="Ask Stephanie AI"><a href="/api/openai/query" target="_blank" rel="noopener noreferrer">Ask Stephanie AI</a></Button>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       {/* Controls and Grid */}
       <section className="py-12 md:py-16">
@@ -53,7 +54,12 @@ export default function InsightsHub() {
               {items.map((p) => (
                 <Card key={p.slug} className="overflow-hidden">
                   {p.hero_url && (
-                    <img src={p.hero_url} alt={`${p.title} cover image`} loading="lazy" className="h-36 w-full object-cover" />
+                    <div className="relative">
+                      <img src={p.hero_url} alt={`${p.title} cover image`} loading="lazy" className="h-36 w-full object-cover" />
+                      {p.media_type === "video" && (
+                        <Badge className="absolute top-2 left-2 bg-black bg-opacity-60 text-white" variant="default">Video</Badge>
+                      )}
+                    </div>
                   )}
                   <CardHeader>
                     <CardTitle className="line-clamp-2">{p.title}</CardTitle>

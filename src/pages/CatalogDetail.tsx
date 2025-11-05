@@ -19,6 +19,17 @@ export default function CatalogDetail(){
   return (
     <div className="min-h-screen bg-background">
       <section className="container mx-auto px-6 py-12 md:py-16">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
+          '@context':'https://schema.org',
+          '@type': 'CreativeWork',
+          name: doc.title,
+          dateModified: doc.updated_at,
+          encodingFormat: doc.format,
+          version: doc.version,
+          url: window.location.href,
+          citation: (doc.references||[]).map(r=>r.url),
+          ...(doc.file_url ? { image: { '@type': 'ImageObject', contentUrl: doc.file_url } } : {})
+        })}} />
         <h1 className="mb-2 text-3xl font-bold md:text-4xl">{doc.title}</h1>
         <p className="max-w-3xl text-muted-foreground">{doc.abstract}</p>
         <div className="mt-3 flex flex-wrap gap-2 text-xs text-muted-foreground">
