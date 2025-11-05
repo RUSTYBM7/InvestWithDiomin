@@ -30,10 +30,11 @@ export default function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/assets/logo-main.png" alt="Invest With Diomin" className="h-10 w-auto" />
+            {/* Replaced old bitmap logo with new SVG brand asset */}
+            <img src="/logo-wide.svg" alt="Invest With Diomin" className="h-8 w-auto" />
             <div className="hidden sm:block">
-              <h2 className="font-serif text-lg font-bold leading-tight">Invest with Diomin</h2>
-              <p className="text-xs text-muted-foreground">CPWA® Wealth Advisory</p>
+              <h2 className="font-serif text-lg font-bold leading-tight">Invest With Diomin</h2>
+              <p className="text-xs text-muted-foreground">Luxury Fintech & Wealth Advisory</p>
             </div>
           </Link>
 

@@ -81,17 +81,17 @@ export default function HomePage() {
         <div className="container relative mx-auto px-6 py-24 md:py-32 lg:py-40">
           <div className="mx-auto max-w-4xl text-center">
             <Badge variant="outline" className="mb-6 border-primary/30 text-sm">
-              Certified Private Wealth Advisor
+              Luxury Fintech & Wealth Advisory
             </Badge>
             <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              Beyond Wealth.
+              Timeless Wealth.
               <br />
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Build Legacy.
+                Engineered for Tomorrow.
               </span>
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Stephanie Diomin, CPWA® — Certified Private Wealth Advisor guiding professionals, founders, and families toward tax-efficient legacy growth.
+              Invest With Diomin merges geometric precision and modern technology to design tax-efficient portfolios, durable legacy structures, and confident financial decisions.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" className="w-full sm:w-auto group" asChild>
@@ -156,7 +156,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">About Stephanie Diomin, CPWA®</h2>
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">About Invest With Diomin</h2>
               <Separator className="mx-auto w-24 bg-primary" />
             </div>
             <div className="grid gap-8 md:grid-cols-2 md:items-center">
@@ -172,10 +172,10 @@ export default function HomePage() {
               <Card className="border-muted/50 shadow-lg">
                 <CardContent className="p-8">
                   <p className="mb-6 text-lg leading-relaxed text-foreground/90">
-                    Stephanie Diomin is a CPWA® specializing in advanced wealth strategy, tax optimization, and long-term legacy design. With 15+ years in private wealth advising and an instinct for clarity in complexity, she merges financial discipline with human insight.
+                    We are a luxury fintech and wealth advisory practice uniting timeless principles with intelligent automation. Our work centers on clarity, discipline, and elegant execution.
                   </p>
                   <p className="mb-8 text-base leading-relaxed text-muted-foreground">
-                    Her approach empowers clients to understand their assets as tools of freedom and impact, guiding families and entrepreneurs toward meaningful wealth preservation and strategic growth.
+                    From liquidity events to intergenerational planning, we help founders, professionals, and families engineer tax-aware structures, resilient portfolios, and meaningful legacy outcomes.
                   </p>
                   <div className="flex flex-wrap items-center justify-start gap-6">
                     {values.map((value, index) => (
@@ -198,7 +198,7 @@ export default function HomePage() {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">Services Catalog</h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Comprehensive wealth management solutions tailored to your legacy goals
+              Precision-built solutions across portfolio design, tax strategy, estate architecture, and family governance.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
