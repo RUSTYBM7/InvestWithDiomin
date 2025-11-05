@@ -76,7 +76,7 @@ export default function CatalogPage() {
               Resource Catalog
             </h1>
             <p className="text-lg text-muted-foreground md:text-xl">
-              Download comprehensive guides on wealth management and legacy planning
+              Download comprehensive guides on wealth management and legacy planning, including practical checklists, tax-aware frameworks, and portfolio design playbooks crafted to help you move from ideas to implementation with confidence.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function CatalogPage() {
                 </div>
                 <CardTitle className="text-2xl">Investment Catalog 2025</CardTitle>
                 <CardDescription className="text-base">
-                  Access our comprehensive wealth management resource guide
+                  Access our comprehensive wealth management resource guide, including methodology, service overview, and real client planning examples to help you evaluate fit and next steps.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -158,7 +158,7 @@ export default function CatalogPage() {
               <div>
                 <h2 className="mb-4 text-2xl font-bold">Available Resources</h2>
                 <p className="text-muted-foreground">
-                  Explore our collection of wealth management guides and planning resources
+                  Explore our collection of wealth management guides and planning resources, from strategy blueprints to estate architecture checklists designed for founders, professionals, and families.
                 </p>
               </div>
               <div className="space-y-4">

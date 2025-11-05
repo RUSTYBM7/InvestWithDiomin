@@ -63,7 +63,7 @@ export default function RealEstatePage() {
               Real Estate & Alternative Assets
             </h1>
             <p className="text-lg text-muted-foreground md:text-xl">
-              Curated portfolio of high-yield properties and tangible investments
+              Curated portfolio of high-yield properties and tangible investments designed to complement traditional allocations, enhance cash flow, and introduce uncorrelated exposures within a disciplined, risk-aware framework.
             </p>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function RealEstatePage() {
         <div className="container mx-auto px-6">
           <div className="mb-12">
             <h2 className="mb-4 text-2xl font-bold">Featured Properties</h2>
-            <p className="text-muted-foreground">Strategic real estate opportunities for wealth diversification</p>
+            <p className="text-muted-foreground">Strategic real estate opportunities for wealth diversification, with a focus on quality underwriting, stable income characteristics, and thoughtful timing across market cycles.</p>
           </div>
 
           {isLoading ? (

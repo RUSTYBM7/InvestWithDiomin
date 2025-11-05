@@ -71,14 +71,14 @@ export default function AdvisoryOverviewPage() {
               At Invest with Diomin, we provide institutional-grade wealth advisory services tailored to high-net-worth individuals, entrepreneurs, and families. Our CPWA®-credentialed team specializes in tax-efficient strategies, legacy planning, and sophisticated portfolio architecture designed for long-term wealth preservation and growth.
             </p>
             <p className="mb-10 text-base text-muted-foreground">
-              With over 15 years of experience managing $2.8B+ in assets for 200+ client families, we've developed proven frameworks that consistently deliver measurable results. From tax optimization to multi-generational wealth transfer, our holistic approach ensures every aspect of your financial life works together seamlessly.
+              With over 15 years of experience managing $2.8B+ in assets for 200+ client families, we've developed proven frameworks that consistently deliver measurable results. From tax optimization to multi-generational wealth transfer, our holistic approach ensures every aspect of your financial life works together seamlessly. Our advisory spans planning, implementation, and ongoing optimization with clear, data-informed checkpoints.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <ConsultationDialog>
                 <Button size="lg">Schedule Advisory Consultation</Button>
               </ConsultationDialog>
-              <Button size="lg" variant="outline">
-                Download Service Overview
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/catalog">Download Service Overview</Link>
               </Button>
             </div>
           </div>

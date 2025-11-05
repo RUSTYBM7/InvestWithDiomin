@@ -72,7 +72,7 @@ export default function ContactPage() {
               Let's Build Your Legacy
             </h1>
             <p className="text-lg text-muted-foreground md:text-xl">
-              Choose your preferred way to connect and start your wealth strategy journey
+              Choose your preferred way to connect and start your wealth strategy journey. Whether you want a quick message, a scheduled consultation, or a thoughtful email, we make it simple to begin a conversation that leads to clarity, structure, and confidence in every decision you make.
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold">Get in Touch</h2>
             <p className="text-muted-foreground">
-              Multiple ways to connect for your convenience
+              Multiple ways to connect for your convenience, including direct messaging, email, and a guided calendar booking experience so you can engage at your own pace with the format that feels most natural.
             </p>
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
@@ -132,26 +132,26 @@ export default function ContactPage() {
           <Card className="mx-auto max-w-3xl">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Get in Touch</CardTitle>
-              <CardDescription>Contact information for InvestWithDiomin.today</CardDescription>
+              <CardDescription>Contact information for InvestWithDiomin.today, including preferred email, domain verification, and typical response windows to help you plan next steps with confidence.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="text-center">
                   <div className="mb-2 font-semibold">Primary Contact</div>
                   <div className="text-sm text-muted-foreground">
-                    Email: book@investwithdiomin.today
+                    Email: book@investwithdiomin.today — the fastest way to reach the team for detailed requests, proposals, or next steps following a consultation.
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Domain: InvestWithDiomin.today
+                    Domain: InvestWithDiomin.today — official site for resources, scheduling, and secure updates.
                   </div>
                 </div>
                 <div className="text-center">
                   <div className="mb-2 font-semibold">Business Hours</div>
                   <div className="text-sm text-muted-foreground">
-                    Monday - Friday: 9:00 AM - 5:00 PM EST
+                    Monday - Friday: 9:00 AM - 5:00 PM EST (with limited availability for priority engagements).
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Response time: Within 24 hours
+                    Response time: Within 24 hours, with expedited follow-up for time-sensitive planning questions.
                   </div>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold">Follow for Insights</h2>
             <p className="mb-12 text-muted-foreground">
-              Stay updated with wealth strategy tips and market insights
+              Stay updated with wealth strategy tips, portfolio frameworks, and market observations tailored for founders, professionals, and family offices seeking clarity and durable outcomes.
             </p>
             <div className="grid gap-6 md:grid-cols-3">
               {socialLinks.map((social, index) => {
@@ -199,7 +199,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 text-3xl font-bold">Join Our Newsletter</h2>
             <p className="mb-8 text-lg text-muted-foreground">
-              Weekly wealth insights delivered to your inbox
+              Weekly wealth insights delivered to your inbox, including tax-aware strategies, durable portfolio principles, and actionable checklists to help you make decisions with precision.
             </p>
             <div className="flex justify-center">
               <NewsletterForm />

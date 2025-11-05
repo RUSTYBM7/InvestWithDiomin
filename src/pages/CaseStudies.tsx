@@ -87,7 +87,7 @@ export default function CaseStudiesPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">Case Studies</h1>
             <p className="text-lg text-muted-foreground md:text-xl">
-              Real results from strategic wealth management solutions
+              Real results from strategic wealth management solutions, highlighting how disciplined execution, tax-aware structures, and thoughtful planning create measurable outcomes across complex financial situations.
             </p>
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function CaseStudiesPage() {
           <Card className="mx-auto max-w-4xl border-muted/50 bg-muted/20">
             <CardContent className="p-6">
               <p className="text-center text-sm text-muted-foreground">
-                <strong>Disclaimer:</strong> All case studies are anonymized for client confidentiality. Results shown are for educational purposes only and represent specific scenarios under particular market conditions. Past performance does not guarantee future results. Individual outcomes may vary based on personal circumstances, market conditions, and timing. These examples are not personalized investment advice.
+                <strong>Disclaimer:</strong> All case studies are anonymized for client confidentiality. Results shown are for educational purposes only and represent specific scenarios under particular market conditions. Past performance does not guarantee future results. Individual outcomes may vary based on personal circumstances, market conditions, and timing. These examples are not personalized investment advice and are not a solicitation to buy or sell any security.
               </p>
             </CardContent>
           </Card>

@@ -91,7 +91,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Invest With Diomin merges geometric precision and modern technology to design tax-efficient portfolios, durable legacy structures, and confident financial decisions.
+              Invest With Diomin merges geometric precision and modern technology to design tax-efficient portfolios, durable legacy structures, and confident financial decisions. We pair timeless principles with forward-looking tools so every plan is elegant, explainable, and engineered to perform across cycles—not just market moments.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" className="w-full sm:w-auto group" asChild>
@@ -198,7 +198,7 @@ export default function HomePage() {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">Services Catalog</h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Precision-built solutions across portfolio design, tax strategy, estate architecture, and family governance.
+              Precision-built solutions across portfolio design, tax strategy, estate architecture, and family governance. Our engagements are designed to be clear, collaborative, and outcome-focused from initial discovery through long-term stewardship.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
