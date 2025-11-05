@@ -4,6 +4,7 @@ import { MessageCircle, Send, Calendar, Mail, Linkedin, Instagram } from "lucide
 import { ConsultationDialog } from "@/components/ConsultationDialog";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import Footer from "@/components/Footer";
+import LeadForm from "@/components/LeadForm";
 
 export default function ContactPage() {
   const contactMethods = [
@@ -74,6 +75,15 @@ export default function ContactPage() {
             <p className="text-lg text-muted-foreground md:text-xl">
               Choose your preferred way to connect and start your wealth strategy journey. Whether you want a quick message, a scheduled consultation, or a thoughtful email, we make it simple to begin a conversation that leads to clarity, structure, and confidence in every decision you make.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Form */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-3xl mb-12">
+            <LeadForm />
           </div>
         </div>
       </section>

@@ -31,6 +31,9 @@ import Terms from "./pages/Terms";
 import Fintech from "./pages/Fintech";
 import XcloudMultixPro from "./pages/XcloudMultixPro";
 import Recovery from "./pages/Recovery";
+import AdvisoryWorkshops from "./pages/AdvisoryWorkshops";
+import AdvisoryCourses from "./pages/AdvisoryCourses";
+import AdvisoryPortfolioAudits from "./pages/AdvisoryPortfolioAudits";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +54,9 @@ function App() {
                 <Route path="/advisory/private-wealth-strategy" element={<><Navigation /><PrivateWealthStrategy /></>} />
                 <Route path="/advisory/tax-optimization" element={<><Navigation /><TaxOptimization /></>} />
                 <Route path="/advisory/estate-planning" element={<><Navigation /><EstatePlanningPage /></>} />
+                <Route path="/advisory/workshops" element={<><Navigation /><AdvisoryWorkshops /></>} />
+                <Route path="/advisory/courses" element={<><Navigation /><AdvisoryCourses /></>} />
+                <Route path="/advisory/portfolio-audits" element={<><Navigation /><AdvisoryPortfolioAudits /></>} />
                 <Route path="/services" element={<><Navigation /><Services /></>} />
                 <Route path="/case-studies" element={<><Navigation /><CaseStudies /></>} />
                 <Route path="/real-estate" element={<><Navigation /><RealEstate /></>} />

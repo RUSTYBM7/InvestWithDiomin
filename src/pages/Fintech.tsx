@@ -226,6 +226,29 @@ export default function FintechPage() {
         </div>
       </section>
 
+      {/* New Fintech Ecosystem Section */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-4xl">
+            <h1 className="mb-6 text-4xl font-bold md:text-5xl">Fintech Ecosystem</h1>
+            <p className="mb-8 text-lg text-muted-foreground">
+              OrbitCare, OrbitPay, and XcloudMultixPro form a secure, API-first fintech stack. OrbitCare handles recovery workflows and account health; OrbitPay streamlines fiat/crypto settlement and reconciliation; XcloudMultixPro powers leverage calibration, analytics, and education. Together they deliver an auditable, privacy-conscious system for modern wealth.
+            </p>
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                Blockchain settlement and automated reconciliation reduce operational overhead while preserving human review checkpoints. Developers can integrate via REST endpoints for positions, balances, and alerts, enabling custom automation and research workflows.
+              </p>
+              <p>
+                Developer Access: /api/openai/query for AI summaries; market data via /functions/market-oracle; leads and newsletter webhooks via Supabase Edge. Authentication is handled with signed JWTs, and CORS is configured for the primary domain.
+              </p>
+            </div>
+            <div className="mt-8 flex gap-4">
+              <Button asChild><a href="/xcloudmultixpro">Explore XcloudMultixPro</a></Button>
+              <Button variant="outline" asChild><a href="/contact">Developer Access</a></Button>
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer />
     </div>
   );

@@ -68,7 +68,7 @@ export default function AdvisoryOverviewPage() {
               Professional Advisory Services
             </h1>
             <p className="mb-8 text-lg leading-relaxed text-muted-foreground md:text-xl">
-              At Invest with Diomin, we provide institutional-grade wealth advisory services tailored to high-net-worth individuals, entrepreneurs, and families. Our CPWA®-credentialed team specializes in tax-efficient strategies, legacy planning, and sophisticated portfolio architecture designed for long-term wealth preservation and growth.
+              Crypto-focused wealth structuring with CPWA® discipline: leverage systems, tax-aware trading, DeFi yield under compliance, and multi-asset risk design. We architect explainable, auditable programs aligned to your objectives.
             </p>
             <p className="mb-10 text-base text-muted-foreground">
               With over 15 years of experience managing $2.8B+ in assets for 200+ client families, we've developed proven frameworks that consistently deliver measurable results. From tax optimization to multi-generational wealth transfer, our holistic approach ensures every aspect of your financial life works together seamlessly. Our advisory spans planning, implementation, and ongoing optimization with clear, data-informed checkpoints.
@@ -165,6 +165,45 @@ export default function AdvisoryOverviewPage() {
         </div>
       </section>
 
+      {/* Digital Asset Strategy */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle>CPWA® Strategy in Digital Assets</CardTitle>
+                <CardDescription>Institutional process applied to crypto</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">We adapt CPWA® frameworks to wallets, exchanges, and DeFi positions: liquidity tiers, risk budgeting, and tax lot management guided by telemetry and governance.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>DeFi Yield & Compliance</CardTitle>
+                <CardDescription>Yield with controls and documentation</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">Protocol due diligence, smart contract review, and income tracking with exportable reports suitable for tax filing and audits.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Smart Custody & Audits</CardTitle>
+                <CardDescription>Policies, evidence, and recovery</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">Key ceremonies, role-based access, and periodic audit packages. Recovery runbooks support rapid response to compromises.</p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button asChild><Link to="/advisory/workshops">Workshops</Link></Button>
+            <Button asChild variant="outline"><Link to="/advisory/courses">Courses</Link></Button>
+            <Button asChild variant="ghost"><Link to="/advisory/portfolio-audits">Portfolio Audits</Link></Button>
+          </div>
+        </div>
+      </section>
       {/* Process */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">

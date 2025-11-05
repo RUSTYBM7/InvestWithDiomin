@@ -57,6 +57,18 @@ export default function Navigation() {
             )}
           </div>
 
+          <div className="hidden items-center gap-2 md:flex">
+            {/* ... keep existing nav links ... */}
+            <a
+              href="/api/openai/chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 items-center rounded-md border px-3 text-sm transition-colors hover:bg-accent"
+            >
+              Ask Stephanie AI
+            </a>
+            <ModeToggle />
+          </div>
           {/* Mobile Navigation */}
           <div className="flex items-center gap-2 lg:hidden">
             <ModeToggle />
