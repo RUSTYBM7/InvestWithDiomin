@@ -351,9 +351,6 @@ export default function HomePage() {
               <NewsletterForm />
             </div>
             <p className="mt-8 text-sm text-muted-foreground">
-              Educational content only; not individualized investment advice.
-            </p>
-            <p className="mt-8 text-sm text-muted-foreground">
               © 2025 Invest With Diomin. All Rights Reserved.
             </p>
           </div>

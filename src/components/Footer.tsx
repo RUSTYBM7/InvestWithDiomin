@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Send } from "lucide-react";
+import { CryptoTicker } from "./CryptoTicker";
 
 export default function Footer() {
   const navigation = {
@@ -103,18 +104,17 @@ export default function Footer() {
 
         <Separator className="my-8" />
 
+        {/* Crypto Ticker */}
+        <div className="mb-6">
+          <CryptoTicker />
+        </div>
         {/* Legal */}
         <div className="space-y-3 text-center text-xs text-muted-foreground">
           <p>
             CPWA® is a registered mark of the Investments & Wealth Institute™.
           </p>
           <p>
-            © 2025 Invest with Diomin. All rights reserved.
-          </p>
-          <p>
-            All content is educational only and not personalized financial advice. Securities and
-            advisory services offered through qualified registered representatives. Past
-            performance is not indicative of future results.
+            © 2025 Invest with Diomin. All Rights Reserved.
           </p>
         </div>
       </div>
