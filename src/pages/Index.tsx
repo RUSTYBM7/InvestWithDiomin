@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { RotatingStats } from "@/components/RotatingStats";
 import { AutomationFlyer } from "@/components/AutomationFlyer";
 import { LiveFeed } from "@/components/LiveFeed";
+import LiveMetrics from "@/components/LiveMetrics";
 
 export default function HomePage() {
   const services = [
@@ -80,47 +81,20 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,167,106,0.08),transparent_50%)]" />
         <div className="absolute -inset-x-20 -top-32 h-64 bg-[conic-gradient(from_90deg_at_50%_50%,rgba(212,175,55,0.08),transparent_60%)] blur-2xl" />
         <div className="container relative mx-auto px-6 py-24 md:py-32 lg:py-40">
-          <div className="mx-auto max-w-5xl text-center">
-            <Badge variant="outline" className="mb-6 border-primary/30 text-sm">
-              Empowering Global Investors Through Intelligent Crypto Leverage & Recovery
-            </Badge>
-            <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              Crypto-Driven Wealth Advisory
-              <br />
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Leverage. Recover. Build.
-              </span>
-            </h1>
-            <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              We help investors harness cryptocurrency leverage systems responsibly, restore compromised digital assets, and integrate tokenized real estate within multi-asset portfolios. Our approach blends risk controls, on-chain telemetry, and human judgment under the leadership of Stephanie Diomin, CPWA®, delivering clarity across wallets, exchanges, and DeFi while maintaining tax-aware execution and audit-ready documentation.
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">Invest With Diomin</h1>
+            <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Wealth strategy, real-estate alpha, and crypto-fintech execution—delivered with controls.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" className="w-full sm:w-auto group" asChild>
-                <Link to="/xcloudmultixpro">
-                  Join XcloudMultixPro
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button size="lg" asChild aria-label="Book Consultation">
+                <Link to="/contact">Book Consultation</Link>
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
-                <Link to="/recovery">Recover Funds</Link>
-              </Button>
-              <ConsultationDialog>
-                <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                  Book Consultation
-                </Button>
-              </ConsultationDialog>
-              <Button
-                size="lg"
-                variant="ghost"
-                className="w-full sm:w-auto"
-                onClick={() => {
-                  const el = document.getElementById("about-stephanie");
-                  el?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
-              >
-                Learn More
+              <Button size="lg" variant="outline" asChild aria-label="Explore XcloudMultixPro">
+                <Link to="/services/xcloudmultixpro">Explore XcloudMultixPro</Link>
               </Button>
             </div>
+            <LiveMetrics />
           </div>
         </div>
       </section>
@@ -330,29 +304,113 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-20 md:py-28">
+      {/* Value Cards */}
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl lg:text-5xl">Ready to Build Your Legacy?</h2>
-            <p className="mb-10 text-lg text-muted-foreground">
-              Schedule a consultation to discuss your wealth management strategy.
+          <div className="grid gap-6 md:grid-cols-3">
+            <Card className="transition-all hover:shadow-lg">
+              <CardHeader>
+                <CardTitle>Crypto Leverage, Safely</CardTitle>
+                <CardDescription>Risk budgets and collateral rules</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Margin introduces liquidation risk. We emphasize position sizing, stop-outs, and collateral policies that bound downside. Our approach clarifies debt ratios, funding costs, and volatility exposure so clients operate within predefined limits—never promises, only controls.
+                </p>
+                <div className="mt-4">
+                  <Button asChild variant="outline" aria-label="Understand the Framework">
+                    <Link to="/services/xcloudmultixpro">Understand the Framework</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="transition-all hover:shadow-lg">
+              <CardHeader>
+                <CardTitle>Fund & Asset Recovery</CardTitle>
+                <CardDescription>Structured best-effort workflows</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Intake → triage → trace → evidence pack → escalation (LE/compliance). We coordinate wallet forensics and exchange liaison steps to maximize restoration probability. Outcomes are not guaranteed; we protect legal posture and evidence integrity throughout.
+                </p>
+                <div className="mt-4">
+                  <Button asChild variant="outline" aria-label="Start Secure Intake">
+                    <Link to="/services/fund-recovery">Start Secure Intake</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="transition-all hover:shadow-lg">
+              <CardHeader>
+                <CardTitle>Real Estate with Discipline</CardTitle>
+                <CardDescription>Cash-flow focus and underwriting</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  We prioritize DSCR, cap-rate spreads, and tax-aware hold periods. Tokenization pilots are labeled experimental and designed for transparency and auditability. The aim: durable, explainable returns—without implying guarantees.
+                </p>
+                <div className="mt-4">
+                  <Button asChild variant="outline" aria-label="Browse Portfolio">
+                    <Link to="/services/real-estate">Browse Portfolio</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* XcloudMultixPro Spotlight */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="mb-4 text-3xl font-bold">XcloudMultixPro — Execution Layer</h2>
+            <p className="mx-auto max-w-3xl text-muted-foreground">
+              XcloudMultixPro provides education tracks, leverage policy guardrails, and custody options with multi-sig support. An oracle pricing feed informs dashboards and alerts, while a public incident status page communicates uptime and mitigations. Safety gates enforce maximum debt ratios, liquidation buffers, and withdrawal holds when markets stress, helping users act with discipline—not impulse.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <ConsultationDialog>
-                <Button size="lg" className="w-full sm:w-auto group">
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Book 1:1 Consultation
-                </Button>
-              </ConsultationDialog>
-              <div className="w-full sm:hidden" />
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+              <Button asChild aria-label="Course Tracks"><Link to="/services/xcloudmultixpro">Course Tracks</Link></Button>
+              <Button variant="outline" asChild aria-label="Status"><Link to="/insights/markets">Status</Link></Button>
             </div>
-            <div className="mt-8 flex justify-center">
-              <NewsletterForm />
-            </div>
-            <p className="mt-8 text-sm text-muted-foreground">
-              © 2025 Invest With Diomin. All Rights Reserved.
-            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Controls */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <h2 className="mb-6 text-3xl font-bold">Trust & Controls</h2>
+          <ul className="ml-5 list-disc space-y-2 text-muted-foreground">
+            <li>CPWA® credentialed leadership</li>
+            <li>KYC/AML posture and documentation workflows</li>
+            <li>WCAG 2.2 AA accessibility standards</li>
+            <li>Row-Level Security and role permissions for data</li>
+            <li>Consent-managed analytics and privacy choices</li>
+          </ul>
+          <p className="mt-4 text-sm text-muted-foreground">No performance guarantees. Digital assets carry risk.</p>
+        </div>
+      </section>
+
+      {/* Proof Row */}
+      <section className="bg-muted/30 py-14">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 md:grid-cols-3">
+            <blockquote className="text-sm text-muted-foreground">“Clear explanations, pragmatic steps, and disciplined controls we could actually follow.”</blockquote>
+            <blockquote className="text-sm text-muted-foreground">“Responsive and thorough—risk conversations before market stress, not after.”</blockquote>
+            <blockquote className="text-sm text-muted-foreground">“Documentation-first approach made audits and tax filing significantly easier.”</blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer CTA */}
+      <section className="py-16">
+        <div className="container mx-auto px-6 text-center">
+          <h3 className="mb-4 text-2xl font-bold">Ready to plan with rigor?</h3>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button asChild aria-label="Book Consultation"><Link to="/contact">Book Consultation</Link></Button>
+            <Button variant="outline" asChild aria-label="Download Catalog"><Link to="/catalog">Download Catalog</Link></Button>
           </div>
         </div>
       </section>

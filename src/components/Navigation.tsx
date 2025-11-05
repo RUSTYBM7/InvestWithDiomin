@@ -11,20 +11,31 @@ export default function Navigation() {
   const location = useLocation();
   const { user } = useAuth();
 
-  const routes = [
+  const topLevel = [
     { path: "/", label: "Home" },
-    { path: "/feature", label: "Profile" },
-    { path: "/advisory", label: "Advisory" },
-    { path: "/services", label: "Services" },
-    { path: "/case-studies", label: "Case Studies" },
-    { path: "/real-estate", label: "Real Estate" },
-    { path: "/philanthropy", label: "Philanthropy" },
+    { path: "/about", label: "About", children: [
+      { path: "/about/profile", label: "Profile" },
+      { path: "/about/advisory", label: "Advisory" },
+      { path: "/about/case-studies", label: "Case Studies" },
+      { path: "/about/philanthropy", label: "Philanthropy" },
+    ] },
+    { path: "/services", label: "Services", children: [
+      { path: "/services/real-estate", label: "Real Estate" },
+      { path: "/services/fintech", label: "Fintech" },
+      { path: "/services/xcloudmultixpro", label: "XcloudMultixPro" },
+      { path: "/services/fund-recovery", label: "Fund Recovery" },
+    ] },
+    { path: "/insights", label: "Insights", children: [
+      { path: "/insights/markets", label: "Market Updates" },
+      { path: "/insights/research", label: "Research" },
+      { path: "/insights/digest", label: "Digest" },
+    ] },
     { path: "/catalog", label: "Catalog" },
-    { path: "/insights", label: "Insights" },
-    { path: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact", children: [
+      { path: "/contact/signin", label: "Sign In" },
+    ] },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-lg">
       <div className="container mx-auto px-6">
@@ -35,25 +46,38 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-1 lg:flex">
-            {routes.map((route) => (
-              <Link key={route.path} to={route.path}>
-                <Button
-                  variant={isActive(route.path) ? "default" : "ghost"}
-                  className="text-sm"
-                >
-                  {route.label}
-                </Button>
-              </Link>
+            {topLevel.map((item) => (
+              <div key={item.path} className="relative group">
+                <Link to={item.path}>
+                  <Button
+                    variant={location.pathname.startsWith(item.path) ? "default" : "ghost"}
+                    className="text-sm"
+                  >
+                    {item.label}
+                  </Button>
+                </Link>
+                {item.children && (
+                  <div className="invisible absolute left-0 top-full z-50 mt-1 w-56 rounded-md border bg-popover p-2 opacity-0 shadow-xl transition-all group-hover:visible group-hover:opacity-100">
+                    {item.children.map((child) => (
+                      <Link key={child.path} to={child.path}>
+                        <div className="rounded-sm px-3 py-2 text-sm text-popover-foreground hover:bg-accent">
+                          {child.label}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
+            <a
+              href="/api/openai/chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 items-center rounded-md border px-3 text-sm transition-colors hover:bg-accent"
+            >
+              Ask Stephanie AI
+            </a>
             <ModeToggle />
-            {!user && (
-              <Link to="/sign-in" className="ml-2">
-                <Button size="sm" className="gap-2">
-                  <LogIn className="h-4 w-4" />
-                  Sign In
-                </Button>
-              </Link>
-            )}
           </div>
 
           <div className="hidden items-center gap-2 md:flex">
@@ -77,25 +101,38 @@ export default function Navigation() {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-64">
+              <SheetContent side="right" className="w-72">
                 <div className="mb-6 border-b pb-4">
                   <Link to="/" onClick={() => setOpen(false)} className="block font-serif text-lg font-bold">
                     Invest With Diomin
                   </Link>
                 </div>
                 <div className="mt-2 flex flex-col gap-2">
-                  {routes.map((route) => (
-                    <Link key={route.path} to={route.path} onClick={() => setOpen(false)}>
-                      <Button
-                        variant={isActive(route.path) ? "default" : "ghost"}
-                        className="w-full justify-start"
-                      >
-                        {route.label}
-                      </Button>
-                    </Link>
+                  {topLevel.map((item) => (
+                    <div key={item.path}>
+                      <Link to={item.path} onClick={() => setOpen(false)}>
+                        <Button
+                          variant={location.pathname.startsWith(item.path) ? "default" : "ghost"}
+                          className="w-full justify-start"
+                        >
+                          {item.label}
+                        </Button>
+                      </Link>
+                      {item.children && (
+                        <div className="ml-3 mt-1 flex flex-col">
+                          {item.children.map((child) => (
+                            <Link key={child.path} to={child.path} onClick={() => setOpen(false)}>
+                              <Button variant="ghost" className="w-full justify-start text-sm">
+                                {child.label}
+                              </Button>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                   {!user && (
-                    <Link to="/sign-in" onClick={() => setOpen(false)} className="w-full">
+                    <Link to="/contact/signin" onClick={() => setOpen(false)} className="w-full">
                       <Button className="w-full justify-start gap-2">
                         <LogIn className="h-4 w-4" />
                         Sign In

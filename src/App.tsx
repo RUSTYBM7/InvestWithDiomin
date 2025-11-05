@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/theme-provider";
 import { AuthProvider } from "./hooks/useAuth";
 import Navigation from "./components/Navigation";
+import Breadcrumbs from "./components/Breadcrumbs";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -46,38 +47,58 @@ function App() {
           <Router>
             <AuthProvider>
               <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<><Navigation /><Index /></>} />
-                <Route path="/feature" element={<><Navigation /><Feature /></>} />
-                <Route path="/about" element={<><Navigation /><About /></>} />
-                <Route path="/advisory" element={<><Navigation /><AdvisoryOverview /></>} />
+                <Route path="/" element={<><Navigation /><Breadcrumbs /><Index /></>} />
+
+                {/* About */}
+                <Route path="/about" element={<><Navigation /><Breadcrumbs /><About /></>} />
+                <Route path="/about/profile" element={<><Navigation /><Breadcrumbs /><Feature /></>} />
+                <Route path="/about/advisory" element={<><Navigation /><Breadcrumbs /><AdvisoryOverview /></>} />
+                <Route path="/about/case-studies" element={<><Navigation /><Breadcrumbs /><CaseStudies /></>} />
+                <Route path="/about/philanthropy" element={<><Navigation /><Breadcrumbs /><Philanthropy /></>} />
+
+                {/* Services */}
+                <Route path="/services" element={<><Navigation /><Breadcrumbs /><Services /></>} />
+                <Route path="/services/real-estate" element={<><Navigation /><Breadcrumbs /><RealEstate /></>} />
+                <Route path="/services/fintech" element={<><Navigation /><Breadcrumbs /><Fintech /></>} />
+                <Route path="/services/xcloudmultixpro" element={<><Navigation /><Breadcrumbs /><XcloudMultixPro /></>} />
+                <Route path="/services/fund-recovery" element={<><Navigation /><Breadcrumbs /><Recovery /></>} />
+
+                {/* Insights */}
+                <Route path="/insights" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
+                <Route path="/insights/markets" element={<><Navigation /><Breadcrumbs /><Insights /></>} />
+                <Route path="/insights/research" element={<><Navigation /><Breadcrumbs /><InsightsProtected /></>} />
+                <Route path="/insights/digest" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
+
+                {/* Catalog */}
+                <Route path="/catalog" element={<><Navigation /><Breadcrumbs /><Catalog /></>} />
+
+                {/* Contact */}
+                <Route path="/contact" element={<><Navigation /><Breadcrumbs /><Contact /></>} />
+                <Route path="/contact/signin" element={<><Navigation /><Breadcrumbs /><SignIn /></>} />
+
+                {/* Legacy redirects */}
+                <Route path="/xcloudmultixpro" element={<><Navigation /><Breadcrumbs /><XcloudMultixPro /></>} />
+                <Route path="/recovery" element={<><Navigation /><Breadcrumbs /><Recovery /></>} />
+
+                {/* Auth routes */}
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/auth/callback" element={<AuthCallback />} />
+
+                {/* Advisory nested routes not included in draft, keep original */}
                 <Route path="/advisory/private-wealth-strategy" element={<><Navigation /><PrivateWealthStrategy /></>} />
                 <Route path="/advisory/tax-optimization" element={<><Navigation /><TaxOptimization /></>} />
                 <Route path="/advisory/estate-planning" element={<><Navigation /><EstatePlanningPage /></>} />
                 <Route path="/advisory/workshops" element={<><Navigation /><AdvisoryWorkshops /></>} />
                 <Route path="/advisory/courses" element={<><Navigation /><AdvisoryCourses /></>} />
                 <Route path="/advisory/portfolio-audits" element={<><Navigation /><AdvisoryPortfolioAudits /></>} />
-                <Route path="/services" element={<><Navigation /><Services /></>} />
-                <Route path="/case-studies" element={<><Navigation /><CaseStudies /></>} />
-                <Route path="/real-estate" element={<><Navigation /><RealEstate /></>} />
-                <Route path="/real-estate/portfolio" element={<><Navigation /><RealEstatePortfolio /></>} />
-                <Route path="/philanthropy" element={<><Navigation /><Philanthropy /></>} />
-                <Route path="/catalog" element={<><Navigation /><Catalog /></>} />
-                <Route path="/contact" element={<><Navigation /><Contact /></>} />
+
+                {/* Admin and privacy/terms routes not included in draft, keep original */}
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/admin" element={<><Navigation /><AdminDashboard /></>} />
-                <Route path="/fintech" element={<><Navigation /><Fintech /></>} />
-                <Route path="/xcloudmultixpro" element={<><Navigation /><XcloudMultixPro /></>} />
-                <Route path="/recovery" element={<><Navigation /><Recovery /></>} />
-                {/* Auth routes */}
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/auth/callback" element={<AuthCallback />} />
-                {/* Protected routes */}
-                <Route path="/insights" element={<InsightsProtected />} />
-                <Route path="/insights-hub" element={<><Navigation /><InsightsHub /></>} />
-                {/* Fallback */}
-                <Route path="*" element={<><Navigation /><NotFound /></>} />
+
+                {/* Fallback to Home */}
+                <Route path="*" element={<><Navigation /><Breadcrumbs /><Index /></>} />
               </Routes>
             </AuthProvider>
           </Router>
