@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
 import Catalog from "./pages/Catalog";
+import CatalogDetail from "./pages/CatalogDetail";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import Feature from "./pages/Feature";
@@ -78,6 +79,7 @@ function App() {
 
                 {/* Catalog */}
                 <Route path="/catalog" element={<><Navigation /><Breadcrumbs /><Catalog /></>} />
+                <Route path="/catalog/:slug" element={<><Navigation /><Breadcrumbs /><CatalogDetail /></>} />
 
                 {/* Contact */}
                 <Route path="/contact" element={<><Navigation /><Breadcrumbs /><Contact /></>} />
