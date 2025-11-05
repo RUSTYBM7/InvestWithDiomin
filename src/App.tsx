@@ -55,6 +55,7 @@ function App() {
                 <Route path="/about/advisory" element={<><Navigation /><Breadcrumbs /><AdvisoryOverview /></>} />
                 <Route path="/about/case-studies" element={<><Navigation /><Breadcrumbs /><CaseStudies /></>} />
                 <Route path="/about/philanthropy" element={<><Navigation /><Breadcrumbs /><Philanthropy /></>} />
+                <Route path="/about/security" element={<><Navigation /><Breadcrumbs /><Privacy /></>} />
 
                 {/* Services */}
                 <Route path="/services" element={<><Navigation /><Breadcrumbs /><Services /></>} />
@@ -62,12 +63,16 @@ function App() {
                 <Route path="/services/fintech" element={<><Navigation /><Breadcrumbs /><Fintech /></>} />
                 <Route path="/services/xcloudmultixpro" element={<><Navigation /><Breadcrumbs /><XcloudMultixPro /></>} />
                 <Route path="/services/fund-recovery" element={<><Navigation /><Breadcrumbs /><Recovery /></>} />
+                <Route path="/services/credit-bridge" element={<><Navigation /><Breadcrumbs /><Services /></>} />
+                <Route path="/services/institutional" element={<><Navigation /><Breadcrumbs /><Services /></>} />
 
                 {/* Insights */}
                 <Route path="/insights" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
                 <Route path="/insights/markets" element={<><Navigation /><Breadcrumbs /><Insights /></>} />
+                <Route path="/insights/market" element={<><Navigation /><Breadcrumbs /><Insights /></>} />
                 <Route path="/insights/research" element={<><Navigation /><Breadcrumbs /><InsightsProtected /></>} />
                 <Route path="/insights/digest" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
+                <Route path="/insights/analytics" element={<><Navigation /><Breadcrumbs /><InsightsHub /></>} />
 
                 {/* Catalog */}
                 <Route path="/catalog" element={<><Navigation /><Breadcrumbs /><Catalog /></>} />
@@ -83,6 +88,7 @@ function App() {
                 {/* Auth routes */}
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
+                <Route path="/auth/login" element={<><Navigation /><Breadcrumbs /><SignIn /></>} />
 
                 {/* Advisory nested routes not included in draft, keep original */}
                 <Route path="/advisory/private-wealth-strategy" element={<><Navigation /><PrivateWealthStrategy /></>} />

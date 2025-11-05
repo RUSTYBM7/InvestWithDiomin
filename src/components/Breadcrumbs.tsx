@@ -12,13 +12,18 @@ const LABELS: Record<string, string> = {
   "fintech": "Fintech",
   "xcloudmultixpro": "XcloudMultixPro",
   "fund-recovery": "Fund Recovery",
+  "credit-bridge": "Credit & Liquidity",
+  "institutional": "Institutional",
   "insights": "Insights",
-  "markets": "Market Updates",
+  "market": "Market Updates",
+  "analytics": "Analytics",
   "research": "Research",
   "digest": "Digest",
   "catalog": "Catalog",
   "contact": "Contact",
   "signin": "Sign In",
+  "login": "Sign In",
+  "security": "Security",
 };
 
 export default function Breadcrumbs() {

@@ -13,27 +13,26 @@ export default function Navigation() {
 
   const topLevel = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About", children: [
-      { path: "/about/profile", label: "Profile" },
-      { path: "/about/advisory", label: "Advisory" },
-      { path: "/about/case-studies", label: "Case Studies" },
-      { path: "/about/philanthropy", label: "Philanthropy" },
-    ] },
+    { path: "/about", label: "About" },
+    { path: "/about/profile", label: "Profile" },
+    { path: "/about/advisory", label: "Advisory" },
     { path: "/services", label: "Services", children: [
       { path: "/services/real-estate", label: "Real Estate" },
       { path: "/services/fintech", label: "Fintech" },
       { path: "/services/xcloudmultixpro", label: "XcloudMultixPro" },
       { path: "/services/fund-recovery", label: "Fund Recovery" },
+      { path: "/services/credit-bridge", label: "Credit & Liquidity" },
+      { path: "/services/institutional", label: "Institutional" },
     ] },
     { path: "/insights", label: "Insights", children: [
-      { path: "/insights/markets", label: "Market Updates" },
+      { path: "/insights/market", label: "Market Updates" },
+      { path: "/insights/analytics", label: "Analytics" },
       { path: "/insights/research", label: "Research" },
       { path: "/insights/digest", label: "Digest" },
     ] },
     { path: "/catalog", label: "Catalog" },
-    { path: "/contact", label: "Contact", children: [
-      { path: "/contact/signin", label: "Sign In" },
-    ] },
+    { path: "/contact", label: "Contact" },
+    { path: "/auth/login", label: "Sign In" },
   ];
 
   return (
@@ -132,7 +131,7 @@ export default function Navigation() {
                     </div>
                   ))}
                   {!user && (
-                    <Link to="/contact/signin" onClick={() => setOpen(false)} className="w-full">
+                    <Link to="/auth/login" onClick={() => setOpen(false)} className="w-full">
                       <Button className="w-full justify-start gap-2">
                         <LogIn className="h-4 w-4" />
                         Sign In

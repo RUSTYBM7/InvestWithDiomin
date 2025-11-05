@@ -82,13 +82,13 @@ export default function HomePage() {
         <div className="absolute -inset-x-20 -top-32 h-64 bg-[conic-gradient(from_90deg_at_50%_50%,rgba(212,175,55,0.08),transparent_60%)] blur-2xl" />
         <div className="container relative mx-auto px-6 py-24 md:py-32 lg:py-40">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">Invest With Diomin</h1>
+            <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">Building Digital Wealth Through Intelligent Systems</h1>
             <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Wealth strategy, real-estate alpha, and crypto-fintech execution—delivered with controls.
+              Automation, recovery, and leverage solutions that let individuals and institutions move with the crypto economy — securely and transparently.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" asChild aria-label="Book Consultation">
-                <Link to="/contact">Book Consultation</Link>
+              <Button size="lg" asChild aria-label="Start Recovery">
+                <Link to="/services/fund-recovery">Start Recovery</Link>
               </Button>
               <Button size="lg" variant="outline" asChild aria-label="Explore XcloudMultixPro">
                 <Link to="/services/xcloudmultixpro">Explore XcloudMultixPro</Link>
@@ -109,16 +109,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Automation Flyer */}
+      {/* Financial Intelligence Suite */}
       <section className="bg-muted/30 py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-4xl">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold">Automation That Serves You</h2>
-              <p className="text-muted-foreground">On-chain telemetry, Mailchimp welcome flows, Supabase lead capture, and reconciliation automations that reduce overhead while preserving human oversight.</p>
-            </div>
-            <AutomationFlyer />
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold">Financial Intelligence Suite</h2>
           </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { title: "Crypto Leverage Engine", desc: "Advanced leverage systems with dynamic margin control, liquidation guards, and live monitoring.", cta: "Explore Tools", href: "/services/xcloudmultixpro" },
+              { title: "Asset Recovery Protocol", desc: "Blockchain forensics + structured fund retrieval, focusing on lost or stolen assets.", cta: "Start Recovery", href: "/services/fund-recovery" },
+              { title: "Credit & Liquidity Access", desc: "Instant crypto-backed credit and smart liquidity routing via automated verification.", cta: "Request Credit", href: "/services/credit-bridge" },
+              { title: "Portfolio Intelligence", desc: "Real-time analytics for holdings across exchanges, wallets, and DeFi protocols.", cta: "View Insights", href: "/insights/analytics" },
+              { title: "Security & Compliance", desc: "Secure key management, AML/KYC compliance, and 24/7 monitoring.", cta: "Read Policy", href: "/about/security" },
+              { title: "Institutional Integration", desc: "APIs and white-label systems for exchanges, funds, and fintech partners.", cta: "Partner With Us", href: "/services/institutional" },
+            ].map((card) => (
+              <Card key={card.title} className="transition-all hover:shadow-lg">
+                <CardHeader>
+                  <CardTitle>{card.title}</CardTitle>
+                  <CardDescription>{card.desc}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild variant="outline" aria-label={card.cta}><Link to={card.href}>{card.cta}</Link></Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-xs text-muted-foreground">Digital-asset operations involve risk. Recovery and trading outcomes are not guaranteed.</p>
         </div>
       </section>
 
