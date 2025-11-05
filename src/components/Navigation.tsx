@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, LogIn } from "lucide-react";
 import { ModeToggle } from "./theme-toggle";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const routes = [
     { path: "/", label: "Home" },
@@ -48,6 +50,14 @@ export default function Navigation() {
               </Link>
             ))}
             <ModeToggle />
+            {!user && (
+              <Link to="/sign-in" className="ml-2">
+                <Button size="sm" className="gap-2">
+                  <LogIn className="h-4 w-4" />
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Navigation */}
@@ -71,6 +81,14 @@ export default function Navigation() {
                       </Button>
                     </Link>
                   ))}
+                  {!user && (
+                    <Link to="/sign-in" onClick={() => setOpen(false)} className="w-full">
+                      <Button className="w-full justify-start gap-2">
+                        <LogIn className="h-4 w-4" />
+                        Sign In
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               </SheetContent>
             </Sheet>
