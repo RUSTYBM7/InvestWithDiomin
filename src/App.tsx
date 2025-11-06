@@ -37,6 +37,7 @@ import AdvisoryWorkshops from "./pages/AdvisoryWorkshops";
 import AdvisoryCourses from "./pages/AdvisoryCourses";
 import AdvisoryPortfolioAudits from "./pages/AdvisoryPortfolioAudits";
 import InsightPost from "./pages/InsightPost";
+import ContactLauncher from "./components/ContactLauncher";
 
 const queryClient = new QueryClient();
 
@@ -110,6 +111,7 @@ function App() {
                 {/* Fallback to Home */}
                 <Route path="*" element={<><Navigation /><Breadcrumbs /><Index /></>} />
               </Routes>
+              <ContactLauncher />
             </AuthProvider>
           </Router>
         </ThemeProvider>

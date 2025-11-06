@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+// removed Input search per new directive
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Footer from "@/components/Footer";
@@ -33,7 +33,7 @@ export default function InsightsHub() {
           <>
             <Button asChild aria-label="Market Dashboard"><Link to="/insights/markets">Market Dashboard</Link></Button>
             <Button variant="outline" asChild aria-label="Subscribe"><Link to="#subscribe">Subscribe</Link></Button>
-            <Button variant="ghost" asChild aria-label="Ask Stephanie AI"><a href="/api/openai/query" target="_blank" rel="noopener noreferrer">Ask Stephanie AI</a></Button>
+            <Button variant="ghost" asChild aria-label="Contact on Instagram"><a href="https://instagram.com/stephaniediomin" target="_blank" rel="noopener noreferrer">Chat on Instagram</a></Button>
           </>
         }
       />
