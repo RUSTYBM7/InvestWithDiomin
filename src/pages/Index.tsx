@@ -91,7 +91,7 @@ export default function HomePage() {
                 <Link to="/services/fund-recovery">Start Recovery</Link>
               </Button>
               <Button size="lg" variant="outline" asChild aria-label="Explore XcloudMultixPro">
-                <Link to="/services/xcloudmultixpro">Explore XcloudMultixPro</Link>
+                <a href="https://www.xcloudmultixpro.com" target="_blank" rel="noopener noreferrer">Explore XcloudMultixPro</a>
               </Button>
             </div>
             <LiveMetrics />
@@ -321,6 +321,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mb-10 text-center">
+            <h2 className="mb-3 text-3xl font-bold">What Clients Say</h2>
+            <p className="text-muted-foreground">Real feedback from advisory, recovery, and real estate clients</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { q: "Clear playbooks. We finally understood leverage controls and avoided a liquidation.", a: "Founder, fintech" },
+              { q: "Recovery intake was disciplined and professional. Evidence pack impressed counsel.", a: "Family office" },
+              { q: "Stephanie’s real estate guidance helped us secure a great cash-flow property.", a: "Investor couple" },
+            ].map((t, i) => (
+              <Card key={i} className="border-muted/50">
+                <CardContent className="p-6">
+                  <p className="text-sm text-foreground">“{t.q}”</p>
+                  <p className="mt-3 text-xs text-muted-foreground">— {t.a}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Realtor Brief */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-4 text-3xl font-bold">Stephanie Alvina — Realtor</h2>
+            <p className="text-foreground/90">
+              Stephanie Alvina serves as a Realtor with Coldwell Banker Realty across North and South Carolina, previously operating in Washington. Her practice focuses on disciplined acquisitions, cash-flow metrics, and transparent underwriting—bridging traditional real estate with emerging tokenization pilots.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Button asChild><a href="/services/real-estate">Explore Real Estate</a></Button>
+              <Button variant="outline" asChild><a href="/contact">Contact Stephanie</a></Button>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Value Cards */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">

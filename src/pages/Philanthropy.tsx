@@ -72,6 +72,15 @@ export default function PhilanthropyPage() {
       {/* Programs */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <div>
+              <h2 className="mb-2 text-2xl font-bold">Our Programs</h2>
+              <p className="text-muted-foreground">Creating lasting positive change through strategic philanthropy</p>
+            </div>
+            <a href="https://www.heartbridgecharity.org" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md border px-4 py-2 text-sm transition hover:bg-accent" aria-label="Visit HeartBridge Charity">
+              Visit HeartBridge Charity →
+            </a>
+          </div>
           <div className="mb-16 grid gap-8 lg:grid-cols-3">
             <Card>
               <CardContent className="p-6 text-center">
@@ -94,11 +103,6 @@ export default function PhilanthropyPage() {
                 <div className="text-sm text-muted-foreground">Lives Impacted</div>
               </CardContent>
             </Card>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="mb-4 text-2xl font-bold">Our Programs</h2>
-            <p className="text-muted-foreground">Creating lasting positive change through strategic philanthropy</p>
           </div>
 
           {isLoading ? (

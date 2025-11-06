@@ -22,7 +22,7 @@ export default function XcloudMultixPro() {
                 <Link to="#learn">Start Learning</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="#join">Join the Platform</Link>
+                <a href="https://www.xcloudmultixpro.com" target="_blank" rel="noopener noreferrer">Join the Platform</a>
               </Button>
               <Button size="lg" variant="ghost" asChild>
                 <Link to="#pilots">View Tokenization Pilots</Link>
@@ -98,7 +98,7 @@ export default function XcloudMultixPro() {
             <p className="mb-8 text-muted-foreground">Apply for early access to XcloudMultixPro cohorts and beta features, including tokenization pilots and new recovery workflows.</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link to="/contact">Request Access</Link>
+                <a href="https://www.xcloudmultixpro.com" target="_blank" rel="noopener noreferrer">Go to XcloudMultixPro.com</a>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="#pilots">View Tokenization Pilots</a>
