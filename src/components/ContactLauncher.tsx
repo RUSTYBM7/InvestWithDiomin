@@ -19,7 +19,7 @@ export default function ContactLauncher(){
             <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://instagram.com/stephaniediomin" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram className="h-4 w-4" /> Instagram
             </a>
-            <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://wa.me/5092946731" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <PhoneCall className="h-4 w-4" /> WhatsApp
             </a>
             <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://x.com/intent/follow?screen_name=stephaniediomin" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
