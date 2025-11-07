@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Send } from "lucide-react";
+import { Instagram, Linkedin, Send, Share2 } from "lucide-react";
 import { CryptoTicker } from "./CryptoTicker";
 
 export default function Footer() {
@@ -19,6 +19,11 @@ export default function Footer() {
         name: "Instagram",
         href: "https://instagram.com/investwithdiomin",
         icon: Instagram,
+      },
+      {
+        name: "X (Twitter)",
+        href: "https://x.com/Alvinadiomin",
+        icon: Share2,
       },
       {
         name: "Threads",

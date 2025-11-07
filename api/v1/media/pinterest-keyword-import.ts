@@ -8,7 +8,16 @@ const KEYWORDS = [
   "blockchain infographic",
   "crypto leverage",
   "onchain analytics",
-  "crypto recovery"
+  "crypto recovery",
+  "altcoin season",
+  "macro liquidity crypto",
+  "derivatives funding rate",
+  "perpetual futures crypto",
+  "yield farming infographic",
+  "stablecoin flows",
+  "wallet security tips",
+  "exchange proof of reserves",
+  "tax crypto infographic"
 ];
 
 async function discoverPins(keyword: string): Promise<string[]> {
@@ -30,7 +39,7 @@ export async function POST() {
     const pins = await discoverPins(kw);
     discovered.push(...pins);
   }
-  discovered = Array.from(new Set(discovered)).slice(0, 30);
+  discovered = Array.from(new Set(discovered)).slice(0, 50);
 
   let imported = 0;
   for (const url of discovered) {
@@ -42,7 +51,7 @@ export async function POST() {
       const title = meta?.title || 'Pinterest Media';
       const alt = `${title} - crypto visual`;
       const { error } = await supabase.from('media').insert({
-        type: 'image', src, caption: title, tags: ['pinterest','crypto'], credit: 'Pinterest', alt,
+        type: 'image', src, caption: title, tags: ['pinterest','crypto','finance'], credit: 'Pinterest', alt,
         width: meta?.width || 1280, height: meta?.height || 720, duration: null, external_id: meta?.url || url,
       });
       if (!error) imported++;

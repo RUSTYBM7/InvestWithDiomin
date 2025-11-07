@@ -300,7 +300,7 @@ export default function HomePage() {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">Featured Media & Social Proof</h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Featured on leading platforms. Follow @investwithdiomin for daily insights
+              Featured on leading platforms. Follow @Alvinadiomin on X and @investwithdiomin on Instagram
             </p>
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">

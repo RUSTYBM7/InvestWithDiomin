@@ -22,7 +22,7 @@ export default function ContactLauncher(){
             <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://wa.me/5092946731" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <PhoneCall className="h-4 w-4" /> WhatsApp
             </a>
-            <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://x.com/intent/follow?screen_name=stephaniediomin" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <a className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted" href="https://x.com/intent/follow?screen_name=Alvinadiomin" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <svg viewBox="0 0 24 24" className="h-4 w-4" role="img" aria-label="X logo"><path fill="currentColor" d="M18.244 2H21l-6.5 7.429L22 22h-6.844l-5.34-6.516L3.6 22H1l7.143-8.163L2 2h6.844l4.84 6.094L18.244 2Zm-1.2 18h1.86L7.2 4h-1.86l11.704 16Z"/></svg>
               X (Twitter)
             </a>
