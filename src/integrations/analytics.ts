@@ -1,3 +1,14 @@
+// Extend window types
+declare global {
+  interface Window {
+    dataLayer?: any[];
+    gtag?: (...args: any[]) => void;
+    fbq?: (...args: any[]) => void;
+    _fbq?: any;
+    hj?: (...args: any[]) => void;
+    _hjSettings?: { hjid: number; hjsv: number };
+  }
+}
 export const analyticsEvents = {
   // Lead generation events
   leadSubmit: (source: string, medium: string) => {
@@ -9,7 +20,6 @@ export const analyticsEvents = {
     });
     window.fbq?.('track', 'Lead', { content_name: source });
   },
-
   // Catalog download
   catalogDownload: (email: string) => {
     if (typeof window === 'undefined') return;
@@ -19,7 +29,6 @@ export const analyticsEvents = {
     });
     window.fbq?.('track', 'ViewContent', { content_name: 'Catalog' });
   },
-
   // Booking clicks
   bookingClick: (type: string) => {
     if (typeof window === 'undefined') return;
@@ -28,7 +37,6 @@ export const analyticsEvents = {
       event_label: type,
     });
   },
-
   // Calculator runs
   calcRun: (calculatorType: string) => {
     if (typeof window === 'undefined') return;
@@ -37,7 +45,6 @@ export const analyticsEvents = {
       event_label: calculatorType,
     });
   },
-
   // Scroll depth tracking
   scrollDepth: (depth: number) => {
     if (typeof window === 'undefined') return;
@@ -46,7 +53,6 @@ export const analyticsEvents = {
       event_label: `${depth}%`,
     });
   },
-
   // Chat interactions
   chatInteraction: (message: string) => {
     if (typeof window === 'undefined') return;
@@ -55,7 +61,6 @@ export const analyticsEvents = {
       event_label: 'ai_chat',
     });
   },
-
   // Newsletter signup
   newsletterSignup: (email: string) => {
     if (typeof window === 'undefined') return;
@@ -65,16 +70,14 @@ export const analyticsEvents = {
     });
     window.fbq?.('track', 'Subscribe', { content_name: 'Newsletter' });
   },
-
   // Page view with custom data
-  pageView: (pageName: string, pageType: string) => {
+  pageView: (pageName: string) => {
     if (typeof window === 'undefined') return;
-    window.gtag?.('config', 'G-XXXXXXXXXX', {
+    window.gtag?.('config', import.meta.env.VITE_GA4_ID || 'G-HMD3V5DNZD', {
       page_title: pageName,
       page_path: window.location.pathname,
     });
   },
-
   // Real estate property view
   propertyView: (propertySlug: string) => {
     if (typeof window === 'undefined') return;
@@ -83,7 +86,6 @@ export const analyticsEvents = {
       event_label: propertySlug,
     });
   },
-
   // Article view
   articleView: (articleSlug: string) => {
     if (typeof window === 'undefined') return;
@@ -92,19 +94,19 @@ export const analyticsEvents = {
       event_label: articleSlug,
     });
   },
+  // Hotjar identify helper
+  identifyUser: (userId: string | null, attributes?: Record<string, any>) => {
+    if (typeof window === 'undefined' || !window.hj) return;
+    window.hj('identify', userId, attributes || {});
+  },
 };
 
 // Generic tracker
 export function track(event: string, params?: Record<string, any>) {
   if (typeof window === 'undefined') return;
   window.gtag?.('event', event, params || {});
-  // Map a few events to Meta Pixel where appropriate
   if (event === 'catalog_download') window.fbq?.('track', 'ViewContent', { content_name: 'Catalog' });
   if (event === 'book_click') window.fbq?.('track', 'Contact');
-}
-// Setup GA4 and Meta Pixel on window
-declare global {
-  interface Window { dataLayer?: any[]; gtag?: (...args: any[]) => void; fbq?: (...args: any[]) => void; _fbq?: any }
 }
 
 export const initAnalytics = () => {
@@ -126,9 +128,7 @@ export const initAnalytics = () => {
 
   // Meta Pixel (no eval)
   const pixelId = import.meta.env.VITE_META_PIXEL_ID;
-  if (pixelId) {
-    // Initialize fbq shim
-    if (window.fbq) return;
+  if (pixelId && !window.fbq) {
     const fbq: any = function() { (fbq as any).callMethod ? (fbq as any).callMethod.apply(fbq, arguments as any) : (fbq as any).queue.push(arguments); };
     (fbq as any).push = (fbq as any);
     (fbq as any).loaded = true;
@@ -144,5 +144,26 @@ export const initAnalytics = () => {
 
     window.fbq('init', pixelId);
     window.fbq('track', 'PageView');
+  }
+
+  // Hotjar
+  const hjSiteIdStr = import.meta.env.VITE_HOTJAR_SITE_ID || '';
+  const hjSiteId = Number(hjSiteIdStr) || 0;
+  if (hjSiteId && !window.hj) {
+    window._hjSettings = { hjid: hjSiteId, hjsv: 6 };
+    window.hj = function() { (window.hj as any).q = (window.hj as any).q || []; (window.hj as any).q.push(arguments as any); } as any;
+    const hj = document.createElement('script');
+    hj.async = true;
+    hj.src = `https://static.hotjar.com/c/hotjar-${hjSiteId}.js?sv=6`;
+    document.head.appendChild(hj);
+  }
+
+  // Contentsquare (default to provided URL if env not set)
+  const csUrl = import.meta.env.VITE_CONTENTSQUARE_URL || 'https://t.contentsquare.net/uxa/3fff94e501bcc.js';
+  if (csUrl && !document.querySelector(`script[src='${csUrl}']`)) {
+    const cs = document.createElement('script');
+    cs.async = true;
+    cs.src = csUrl;
+    document.head.appendChild(cs);
   }
 };
