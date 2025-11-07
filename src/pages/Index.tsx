@@ -11,6 +11,7 @@ import { RotatingStats } from "@/components/RotatingStats";
 import { AutomationFlyer } from "@/components/AutomationFlyer";
 import { LiveFeed } from "@/components/LiveFeed";
 import LiveMetrics from "@/components/LiveMetrics";
+import { MediaGrid } from "@/components/media/MediaGrid";
 
 export default function HomePage() {
   const services = [
@@ -300,24 +301,10 @@ export default function HomePage() {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">Featured Media & Social Proof</h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Featured on leading platforms. Follow @Alvinadiomin on X and @investwithdiomin on Instagram
+              Fresh crypto and finance visuals imported automatically. Follow @Alvinadiomin on X and @investwithdiomin on Instagram
             </p>
           </div>
-          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="border-muted/50">
-                <CardContent className="p-6">
-                  <div className="mb-4 aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    <Zap className="h-12 w-12 text-primary/40" />
-                  </div>
-                  <p className="text-sm font-medium">Featured Insight</p>
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    Latest wealth strategy content from @investwithdiomin across Instagram, Threads & LinkedIn.
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <MediaGrid limit={9} />
         </div>
       </section>
 
