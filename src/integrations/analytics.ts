@@ -111,7 +111,7 @@ export const initAnalytics = () => {
   if (typeof window === 'undefined') return;
 
   // GA4
-  const ga4Id = import.meta.env.VITE_GA4_ID;
+  const ga4Id = import.meta.env.VITE_GA4_ID || 'G-HMD3V5DNZD';
   if (ga4Id) {
     const script = document.createElement('script');
     script.async = true;
